@@ -1,15 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
+﻿using System.Windows;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
+using DishReaderApp.ViewModels;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 
@@ -17,6 +8,25 @@ namespace DishReaderApp
 {
     public partial class App : Application
     {
+        private static AllFeedItemsViewModel viewModel = null;
+
+        /// <summary>
+        /// All feed items are bound to this view model
+        /// </summary>
+        public static AllFeedItemsViewModel ViewModel
+        {
+            get
+            {
+                // delay initialization
+                if (viewModel == null)
+                {
+                    viewModel = new AllFeedItemsViewModel();
+                }
+
+                return viewModel;
+            }
+        }
+
         /// <summary>
         /// Provides easy access to the root frame of the Phone Application.
         /// </summary>
