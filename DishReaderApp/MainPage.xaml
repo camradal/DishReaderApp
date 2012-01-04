@@ -14,7 +14,7 @@
     shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot" Background="{StaticResource DefaultBackgroundColor}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -22,8 +22,8 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock x:Name="ApplicationTitle" Text="{Binding Source={StaticResource Strings}, Path=Resources.AppTitle}" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock x:Name="PageTitle" Text="{Binding Resources.PageTitleBlog, Source={StaticResource Strings}}" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock x:Name="ApplicationTitle" Text="{Binding Source={StaticResource Strings}, Path=Resources.AppTitle}" Style="{StaticResource AppTitleStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="{Binding Resources.PageTitleBlog, Source={StaticResource Strings}}" Margin="9,-7,0,0" Style="{StaticResource PageTitleStyle}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
@@ -32,9 +32,9 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Margin="0,0,0,17" Width="432">
-                            <TextBlock Text="{Binding Title}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}"/>
-                            <TextBlock Text="{Binding Path=PublishedDate, StringFormat=\{0:g\}}" TextWrapping="Wrap" Margin="12,0,12,0" Style="{StaticResource PhoneTextSubtleStyle}" />
-                            <TextBlock Text="{Binding Summary}" TextWrapping="Wrap" Margin="12,0,12,0" Style="{StaticResource PhoneTextNormalStyle}"/>
+                            <TextBlock Text="{Binding Title}" TextWrapping="Wrap" Style="{StaticResource ArticleTitleStyle}"/>
+                            <TextBlock Text="{Binding Path=PublishedDate, StringFormat=\{0:g\}}" TextWrapping="Wrap" Margin="12,0,12,0" Style="{StaticResource ArticleSubtleStyle}" />
+                            <TextBlock Text="{Binding Summary}" TextWrapping="Wrap" Margin="12,0,12,0" Style="{StaticResource ArticleNormalStyle}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

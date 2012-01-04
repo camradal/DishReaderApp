@@ -1,0 +1,21 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush x:Key="AppTitleColor" Color="#EB3C2E" />
+    <SolidColorBrush x:Key="PageTitleColor" Color="#003855" />
+    <SolidColorBrush x:Key="HeaderColor" Color="#00598C" />
+    <SolidColorBrush x:Key="DefaultBackgroundColor" Color="White" />
+    <Style x:Key="AppTitleStyle" TargetType="TextBlock" BasedOn="{StaticResource PhoneTextNormalStyle}">
+        <Setter Property="Foreground" Value="{StaticResource AppTitleColor}" />
+    </Style>
+    <Style x:Key="PageTitleStyle" TargetType="TextBlock" BasedOn="{StaticResource PhoneTextTitle1Style}">
+        <Setter Property="Foreground" Value="{StaticResource PageTitleColor}" />
+    </Style>
+    <Style x:Key="ArticleTitleStyle" TargetType="TextBlock" BasedOn="{StaticResource PhoneTextLargeStyle}">
+        <Setter Property="Foreground" Value="{StaticResource HeaderColor}" />
+    </Style>
+    <Style x:Key="ArticleSubtleStyle" TargetType="TextBlock" BasedOn="{StaticResource PhoneTextSubtleStyle}">
+        <Setter Property="Foreground" Value="Gray" />
+    </Style>
+    <Style x:Key="ArticleNormalStyle" TargetType="TextBlock" BasedOn="{StaticResource PhoneTextNormalStyle}">
+        <Setter Property="Foreground" Value="Black" />
+    </Style>
+</ResourceDictionary>
