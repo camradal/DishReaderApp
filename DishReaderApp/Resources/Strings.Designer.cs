@@ -70,6 +70,24 @@ namespace DishReaderApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Refresh.
+        /// </summary>
+        public static string ButtonRefresh {
+            get {
+                return ResourceManager.GetString("ButtonRefresh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string ButtonSettings {
+            get {
+                return ResourceManager.GetString("ButtonSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Blog.
         /// </summary>
         public static string PageTitleBlog {

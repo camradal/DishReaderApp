@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Net;
+﻿using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
 using DishReaderApp.Resources;
 using Microsoft.Phone.Controls;
+using Microsoft.Phone.Shell;
 using Microsoft.Phone.Tasks;
 
 namespace DishReaderApp
@@ -25,6 +17,13 @@ namespace DishReaderApp
 
             // application title need to be upper case
             ApplicationTitle.Text = Strings.AppTitle.ToUpper(CultureInfo.CurrentCulture);
+
+            // specify the text explicitly on the app bar using our resource string
+            var buttonRefresh = (ApplicationBarIconButton)ApplicationBar.Buttons[0];
+            buttonRefresh.Text = Strings.ButtonRefresh;
+
+            var buttonSettings = (ApplicationBarIconButton)ApplicationBar.Buttons[1];
+            buttonSettings.Text = Strings.ButtonSettings;
 
             // initialize view model after the page is loaded
             DataContext = App.ViewModel;

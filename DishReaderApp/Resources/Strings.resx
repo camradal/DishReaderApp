@@ -120,6 +120,12 @@
   <data name="AppTitle" xml:space="preserve">
     <value>Dish Reader</value>
   </data>
+  <data name="ButtonRefresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="ButtonSettings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
   <data name="PageTitleBlog" xml:space="preserve">
     <value>Blog</value>
   </data>
