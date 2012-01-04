@@ -9,11 +9,17 @@ using DishReaderApp.Models;
 
 namespace DishReaderApp.DataAccess
 {
+    /// <summary>
+    /// Feed repository is responsible for managing internal feed items collection
+    /// </summary>
     public sealed class FeedRepository
     {
         private readonly List<FeedItem> feedItems;
         private readonly Uri sourceUri;
 
+        /// <summary>
+        /// Register for this event to be modified when feed is updated
+        /// </summary>
         public event EventHandler<FeedUpdatedEventArgs> FeedUpdated;
 
         public FeedRepository(Uri uri)
@@ -43,11 +49,13 @@ namespace DishReaderApp.DataAccess
             using (StreamReader httpWebStreamReader = new StreamReader(response.GetResponseStream()))
             {
                 string results = httpWebStreamReader.ReadToEnd();
-                IEnumerable<FeedItem> itemsToInsert = ExtractFeedItems(results);
+                IEnumerable<FeedItem> itemsToInsert = ExtractFeedItemsFromSyndicationString(results);
+
+                // extract unique items and insert them into beginning of storage collection
                 IEnumerable<FeedItem> uniqueItems = itemsToInsert.TakeWhile(item => item != feedItems.FirstOrDefault());
                 feedItems.InsertRange(0, uniqueItems);
                 
-                // this is async operation, raise event that collection has been updated
+                // this is async operation, raise event that collection has been updated and pass unique items
                 if (FeedUpdated != null)
                 {
                     FeedUpdated(this, new FeedUpdatedEventArgs(uniqueItems));
@@ -55,9 +63,9 @@ namespace DishReaderApp.DataAccess
             }
         }
 
-        private IEnumerable<FeedItem> ExtractFeedItems(string result)
+        private IEnumerable<FeedItem> ExtractFeedItemsFromSyndicationString(string value)
         {
-            using (StringReader stringReader = new StringReader(result))
+            using (StringReader stringReader = new StringReader(value))
             using (XmlReader reader = XmlReader.Create(stringReader))
             {
                 SyndicationFeed feed = SyndicationFeed.Load(reader);

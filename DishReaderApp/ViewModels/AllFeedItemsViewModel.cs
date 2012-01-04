@@ -19,9 +19,11 @@ namespace DishReaderApp.ViewModels
             feedRepository.FeedUpdated += new EventHandler<FeedUpdatedEventArgs>(feedRepository_FeedUpdated);
         }
 
+        /// <summary>
+        /// Load data asynchronously, to get the result, need to register for FeedUpdated event
+        /// </summary>
         public void LoadData()
         {
-            // load data asynchronously, to get the result, need to register for FeedUpdated event
             feedRepository.LoadFeedsAsync();
         }
 

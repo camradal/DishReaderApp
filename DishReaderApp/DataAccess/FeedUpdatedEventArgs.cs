@@ -4,6 +4,9 @@ using DishReaderApp.Models;
 
 namespace DishReaderApp.DataAccess
 {
+    /// <summary>
+    /// Arguments for the the event when feed is updated
+    /// </summary>
     public sealed class FeedUpdatedEventArgs : EventArgs
     {
         public FeedUpdatedEventArgs(IEnumerable<FeedItem> items)
