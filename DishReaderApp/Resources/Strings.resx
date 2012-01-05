@@ -120,11 +120,17 @@
   <data name="AppTitle" xml:space="preserve">
     <value>Dish Reader</value>
   </data>
-  <data name="ButtonRefresh" xml:space="preserve">
-    <value>Refresh</value>
+  <data name="AppTitleCapitalized" xml:space="preserve">
+    <value>DISH READER</value>
   </data>
-  <data name="ButtonSettings" xml:space="preserve">
-    <value>Settings</value>
+  <data name="ButtonRefresh" xml:space="preserve">
+    <value>refresh</value>
+  </data>
+  <data name="MenuItemAbout" xml:space="preserve">
+    <value>about</value>
+  </data>
+  <data name="PageTitleAbout" xml:space="preserve">
+    <value>about</value>
   </data>
   <data name="PageTitleBlog" xml:space="preserve">
     <value>blog</value>

@@ -15,15 +15,12 @@ namespace DishReaderApp
         {
             InitializeComponent();
 
-            // application title need to be upper case
-            ApplicationTitle.Text = Strings.AppTitle.ToUpper(CultureInfo.CurrentCulture);
-
             // specify the text explicitly on the app bar using our resource string
             var buttonRefresh = (ApplicationBarIconButton)ApplicationBar.Buttons[0];
             buttonRefresh.Text = Strings.ButtonRefresh;
 
-            var buttonSettings = (ApplicationBarIconButton)ApplicationBar.Buttons[1];
-            buttonSettings.Text = Strings.ButtonSettings;
+            var menuItemAbout = (ApplicationBarMenuItem)ApplicationBar.MenuItems[0];
+            buttonRefresh.Text = Strings.MenuItemAbout;
 
             // initialize view model after the page is loaded
             DataContext = App.ViewModel;
@@ -51,6 +48,16 @@ namespace DishReaderApp
 
             // reset selected index to -1 (no selection)
             MainListBox.SelectedIndex = -1;
+        }
+
+        private void RefreshButton_Click(object sender, EventArgs e)
+        {
+            App.ViewModel.LoadData();
+        }
+
+        private void AboutMenuItem_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/AboutPage.xaml", UriKind.Relative));
         }
     }
 }

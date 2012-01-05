@@ -70,7 +70,16 @@ namespace DishReaderApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Refresh.
+        ///   Looks up a localized string similar to DISH READER.
+        /// </summary>
+        public static string AppTitleCapitalized {
+            get {
+                return ResourceManager.GetString("AppTitleCapitalized", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to refresh.
         /// </summary>
         public static string ButtonRefresh {
             get {
@@ -79,11 +88,20 @@ namespace DishReaderApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Settings.
+        ///   Looks up a localized string similar to about.
         /// </summary>
-        public static string ButtonSettings {
+        public static string MenuItemAbout {
             get {
-                return ResourceManager.GetString("ButtonSettings", resourceCulture);
+                return ResourceManager.GetString("MenuItemAbout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to about.
+        /// </summary>
+        public static string PageTitleAbout {
+            get {
+                return ResourceManager.GetString("PageTitleAbout", resourceCulture);
             }
         }
         
