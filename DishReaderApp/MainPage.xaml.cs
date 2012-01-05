@@ -20,7 +20,7 @@ namespace DishReaderApp
             buttonRefresh.Text = Strings.ButtonRefresh;
 
             var menuItemAbout = (ApplicationBarMenuItem)ApplicationBar.MenuItems[0];
-            buttonRefresh.Text = Strings.MenuItemAbout;
+            menuItemAbout.Text = Strings.MenuItemAbout;
 
             // initialize view model after the page is loaded
             DataContext = App.ViewModel;
