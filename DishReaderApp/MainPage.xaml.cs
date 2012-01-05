@@ -57,7 +57,11 @@ namespace DishReaderApp
 
         private void AboutMenuItem_Click(object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri("/AboutPage.xaml", UriKind.Relative));
+            // use dispatcher to prevent jumping elements on the screen
+            Deployment.Current.Dispatcher.BeginInvoke(() =>
+            {
+                NavigationService.Navigate(new Uri("/AboutPage.xaml", UriKind.Relative));
+            });
         }
     }
 }
