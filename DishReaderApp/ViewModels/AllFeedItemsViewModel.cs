@@ -24,6 +24,7 @@ namespace DishReaderApp.ViewModels
         /// </summary>
         public void LoadData()
         {
+            GlobalLoading.Instance.IsLoading = true;
             feedRepository.LoadFeedsAsync();
         }
 
@@ -37,6 +38,7 @@ namespace DishReaderApp.ViewModels
                     AllFeedItems.Insert(i, new FeedItemViewModel(item, feedRepository));
                     i++;
                 }
+                GlobalLoading.Instance.IsLoading = false;
             });
 
             IsDataLoaded = true;

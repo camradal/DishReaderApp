@@ -132,6 +132,9 @@ namespace DishReaderApp
             // Handle navigation failures
             RootFrame.NavigationFailed += RootFrame_NavigationFailed;
 
+            // Add global loading
+            GlobalLoading.Instance.Initialize(RootFrame);
+
             // Ensure we don't initialize again
             phoneApplicationInitialized = true;
         }

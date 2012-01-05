@@ -5,7 +5,6 @@ using System.Windows.Controls;
 using DishReaderApp.Resources;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using Microsoft.Phone.Tasks;
 
 namespace DishReaderApp
 {
