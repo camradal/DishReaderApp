@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 using DishReaderApp.Resources;
@@ -47,11 +48,7 @@ namespace DishReaderApp
             }
 
             // navigate to the new page
-            // TODO: implement navigation service
-            // NavigationService.Navigate(new Uri("/DetailsPage.xaml?selectedItem=" + MainListBox.SelectedIndex, UriKind.Relative));
-            WebBrowserTask webBrowserTask = new WebBrowserTask();
-            webBrowserTask.Uri = App.ViewModel.AllFeedItems[MainListBox.SelectedIndex].Url;
-            webBrowserTask.Show();
+            NavigationService.Navigate(new Uri("/DetailsPage.xaml?selectedItem=" + MainListBox.SelectedIndex, UriKind.Relative));
 
             // reset selected index to -1 (no selection)
             MainListBox.SelectedIndex = -1;

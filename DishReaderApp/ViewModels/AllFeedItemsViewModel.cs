@@ -6,7 +6,7 @@ using DishReaderApp.Models;
 
 namespace DishReaderApp.ViewModels
 {
-    public class AllFeedItemsViewModel : ViewModelBase
+    public sealed class AllFeedItemsViewModel : ViewModelBase
     {
         private readonly FeedRepository feedRepository = new FeedRepository(new Uri(@"http://feeds.feedburner.com/andrewsullivan/rApM"));
 

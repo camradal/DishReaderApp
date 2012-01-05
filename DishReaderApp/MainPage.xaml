@@ -21,7 +21,7 @@
         </Grid.RowDefinitions>
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,12,0,12">
             <TextBlock x:Name="ApplicationTitle" Text="{Binding Source={StaticResource Strings}, Path=Resources.AppTitle}" Style="{StaticResource AppTitleStyle}"/>
             <TextBlock x:Name="PageTitle" Text="{Binding Resources.PageTitleBlog, Source={StaticResource Strings}}" Margin="9,-7,0,0" Style="{StaticResource PageTitleStyle}"/>
         </StackPanel>
@@ -31,7 +31,7 @@
             <ListBox x:Name="MainListBox" ItemsSource="{Binding AllFeedItems}" SelectionChanged="ListBox_SelectionChanged">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Margin="0,0,0,17" Width="432">
+                        <StackPanel Margin="0,0,0,17">
                             <TextBlock Text="{Binding Title}" TextWrapping="Wrap" Style="{StaticResource ArticleTitleStyle}"/>
                             <TextBlock Text="{Binding Path=PublishedDate, StringFormat=\{0:g\}}" TextWrapping="Wrap" Margin="12,0,12,0" Style="{StaticResource ArticleSubtleStyle}" />
                             <TextBlock Text="{Binding Summary}" TextWrapping="Wrap" Margin="12,0,12,0" Style="{StaticResource ArticleNormalStyle}"/>
@@ -43,7 +43,7 @@
     </Grid>
  
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" Mode="Minimized">
             <shell:ApplicationBarIconButton IconUri="Images/appbar.refresh.rest.png" Text="Refresh"/>
             <shell:ApplicationBarIconButton IconUri="Images/appbar.feature.settings.rest.png" Text="Settings"/>
         </shell:ApplicationBar>

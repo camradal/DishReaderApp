@@ -22,7 +22,9 @@ Thumbs.db
 [Dd]ebug*/
 *.lib
 *.sbr
+*.swp
 obj/
 [Rr]elease*/
 _ReSharper*/
 [Tt]est[Rr]esult*
+PerformanceLogs*
