@@ -27,12 +27,9 @@ namespace DishReaderApp
             this.Loaded += new RoutedEventHandler(MainPage_Loaded);
         }
 
-        void MainPage_Loaded(object sender, RoutedEventArgs e)
+        private void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
-            if (!App.ViewModel.IsDataLoaded)
-            {
-                App.ViewModel.LoadData();
-            }
+            // no-op
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

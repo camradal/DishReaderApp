@@ -123,6 +123,12 @@
   <data name="AppTitleCapitalized" xml:space="preserve">
     <value>DISH READER</value>
   </data>
+  <data name="ButtonNext" xml:space="preserve">
+    <value>next</value>
+  </data>
+  <data name="ButtonPrevious" xml:space="preserve">
+    <value>previous</value>
+  </data>
   <data name="ButtonRefresh" xml:space="preserve">
     <value>refresh</value>
   </data>

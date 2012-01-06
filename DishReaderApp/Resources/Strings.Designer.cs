@@ -79,6 +79,24 @@ namespace DishReaderApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to next.
+        /// </summary>
+        public static string ButtonNext {
+            get {
+                return ResourceManager.GetString("ButtonNext", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to previous.
+        /// </summary>
+        public static string ButtonPrevious {
+            get {
+                return ResourceManager.GetString("ButtonPrevious", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to refresh.
         /// </summary>
         public static string ButtonRefresh {

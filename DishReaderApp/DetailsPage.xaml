@@ -21,14 +21,14 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <phone:WebBrowser x:Name="webBrowser1" Source="{Binding Url}" IsScriptEnabled="True" Margin="-12,0" />
+            <phone:WebBrowser x:Name="webBrowser1" IsScriptEnabled="True" Margin="-12,0" />
         </Grid>
     </Grid>
 
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" Mode="Minimized" Opacity="0.5">
-            <shell:ApplicationBarIconButton IconUri="Images/appbar.back.rest.png" Text="Button 1"/>
-            <shell:ApplicationBarIconButton IconUri="Images/appbar.next.rest.png" Text="Button 2"/>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" Opacity="0.5">
+            <shell:ApplicationBarIconButton x:Name="buttonPrevious" IconUri="Images/appbar.back.rest.png" Text="previous" Click="buttonPrevious_Click" />
+            <shell:ApplicationBarIconButton x:Name="buttonNext" IconUri="Images/appbar.next.rest.png" Text="next" Click="buttonNext_Click" />
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 
