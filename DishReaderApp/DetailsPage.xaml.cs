@@ -8,6 +8,13 @@ namespace DishReaderApp
         public DetailsPage()
         {
             InitializeComponent();
+            GlobalLoading.Instance.IsLoading = true;
+            webBrowser1.LoadCompleted += new LoadCompletedEventHandler(webBrowser1_LoadCompleted);
+        }
+
+        void webBrowser1_LoadCompleted(object sender, NavigationEventArgs e)
+        {
+            GlobalLoading.Instance.IsLoading = false;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
