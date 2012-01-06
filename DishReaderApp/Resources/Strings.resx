@@ -147,6 +147,9 @@
   <data name="Disclaimer" xml:space="preserve">
     <value>This application is not associated with The Dish, Daily Beast or Andrew Sullivan.</value>
   </data>
+  <data name="ErrorInternetConnection" xml:space="preserve">
+    <value>Internet connection is not available</value>
+  </data>
   <data name="Feedback" xml:space="preserve">
     <value>Do not hesitate to send any feedback or feature requests</value>
   </data>

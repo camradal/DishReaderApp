@@ -151,6 +151,15 @@ namespace DishReaderApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Internet connection is not available.
+        /// </summary>
+        public static string ErrorInternetConnection {
+            get {
+                return ResourceManager.GetString("ErrorInternetConnection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Do not hesitate to send any feedback or feature requests.
         /// </summary>
         public static string Feedback {

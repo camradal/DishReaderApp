@@ -4,6 +4,7 @@ using System.Windows;
 using DishReaderApp.DataAccess;
 using DishReaderApp.Models;
 using System.Net.NetworkInformation;
+using DishReaderApp.Resources;
 
 namespace DishReaderApp.ViewModels
 {
@@ -33,7 +34,7 @@ namespace DishReaderApp.ViewModels
             }
             else
             {
-                MessageBox.Show("Internet connection is not available");
+                MessageBox.Show(Strings.ErrorInternetConnection);
             }
         }
 
