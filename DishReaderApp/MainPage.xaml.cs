@@ -29,7 +29,10 @@ namespace DishReaderApp
 
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
-            // no-op
+            if (!App.ViewModel.IsDataLoaded)
+            {
+                App.ViewModel.LoadData();
+            }
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

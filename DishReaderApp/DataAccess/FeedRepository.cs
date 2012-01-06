@@ -38,28 +38,42 @@ namespace DishReaderApp.DataAccess
 
         private void LoadFromWeb()
         {
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(sourceUri);
-            request.BeginGetResponse(new AsyncCallback(ReadWebRequestCallback), request);
+            try
+            {
+                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(sourceUri);
+                request.BeginGetResponse(new AsyncCallback(ReadWebRequestCallback), request);
+            }
+            catch
+            {
+                // handle failure to submit request
+            }
         }
 
         private void ReadWebRequestCallback(IAsyncResult callbackResult)
         {
-            HttpWebRequest request = (HttpWebRequest)callbackResult.AsyncState;
-            using (HttpWebResponse response = (HttpWebResponse)request.EndGetResponse(callbackResult))
-            using (StreamReader httpWebStreamReader = new StreamReader(response.GetResponseStream()))
+            try
             {
-                string results = httpWebStreamReader.ReadToEnd();
-                IEnumerable<FeedItem> itemsToInsert = ExtractFeedItemsFromSyndicationString(results);
-
-                // extract unique items and insert them into beginning of storage collection
-                IEnumerable<FeedItem> uniqueItems = itemsToInsert.TakeWhile(item => item != feedItems.FirstOrDefault());
-                feedItems.InsertRange(0, uniqueItems);
-                
-                // this is async operation, raise event that collection has been updated and pass unique items
-                if (FeedUpdated != null)
+                HttpWebRequest request = (HttpWebRequest)callbackResult.AsyncState;
+                using (HttpWebResponse response = (HttpWebResponse)request.EndGetResponse(callbackResult))
+                using (StreamReader httpWebStreamReader = new StreamReader(response.GetResponseStream()))
                 {
-                    FeedUpdated(this, new FeedUpdatedEventArgs(uniqueItems));
+                    string results = httpWebStreamReader.ReadToEnd();
+                    IEnumerable<FeedItem> itemsToInsert = ExtractFeedItemsFromSyndicationString(results);
+
+                    // extract unique items and insert them into beginning of storage collection
+                    IEnumerable<FeedItem> uniqueItems = itemsToInsert.TakeWhile(item => item != feedItems.FirstOrDefault());
+                    feedItems.InsertRange(0, uniqueItems);
+
+                    // this is async operation, raise event that collection has been updated and pass unique items
+                    if (FeedUpdated != null)
+                    {
+                        FeedUpdated(this, new FeedUpdatedEventArgs(uniqueItems));
+                    }
                 }
+            }
+            catch
+            {
+                // handle failure to read response
             }
         }
 

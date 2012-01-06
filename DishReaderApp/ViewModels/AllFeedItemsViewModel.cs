@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using DishReaderApp.DataAccess;
 using DishReaderApp.Models;
+using System.Net.NetworkInformation;
 
 namespace DishReaderApp.ViewModels
 {
@@ -24,8 +25,16 @@ namespace DishReaderApp.ViewModels
         /// </summary>
         public void LoadData()
         {
-            GlobalLoading.Instance.IsLoading = true;
-            feedRepository.LoadFeedsAsync();
+            // only load data for the network if connection is available
+            if (NetworkInterface.GetIsNetworkAvailable())
+            {
+                GlobalLoading.Instance.IsLoading = true;
+                feedRepository.LoadFeedsAsync();
+            }
+            else
+            {
+                MessageBox.Show("Internet connection is not available");
+            }
         }
 
         private void feedRepository_FeedUpdated(object sender, FeedUpdatedEventArgs e)
