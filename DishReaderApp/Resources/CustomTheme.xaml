@@ -21,7 +21,24 @@
         <Setter Property="Foreground" Value="Black" />
     </Style>
     <!-- elements -->
-    
+    <Style x:Key="EmptyButtonStyle" TargetType="HyperlinkButton">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="HyperlinkButton">
+                    <Border Background="{TemplateBinding Background}"
+                    Padding="{TemplateBinding Padding}">
+                        <ContentPresenter
+                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                    Content="{TemplateBinding Content}"
+                    ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     <!-- make sure the scroller is visible in our custom list boxes-->
     <Style x:Key="ScrollViewerContrastStyle" TargetType="ScrollViewer">
         <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
