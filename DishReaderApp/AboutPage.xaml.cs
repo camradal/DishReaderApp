@@ -30,17 +30,31 @@ namespace DishReaderApp
 
         private void feedbackButton_Click(object sender, RoutedEventArgs e)
         {
-            EmailComposeTask task = new EmailComposeTask();
-            task.Subject = "Feedback about Dish Reader";
-            task.Body = "Hello, I've been using Dish Reader and I have following feedback\n\n";
-            task.To = "dapperpanda@gmail.com";
-            task.Show();
+            try
+            {
+                EmailComposeTask task = new EmailComposeTask();
+                task.Subject = "Feedback about Dish Reader";
+                task.Body = "Hello, I've been using Dish Reader and I have following feedback\n\n";
+                task.To = "dapperpanda@gmail.com";
+                task.Show();
+            }
+            catch
+            {
+                // prevent exceptions from double-click
+            }
         }
 
         private void rateButton_Click(object sender, RoutedEventArgs e)
         {
-            MarketplaceReviewTask task = new MarketplaceReviewTask();
-            task.Show();
+            try
+            {
+                MarketplaceReviewTask task = new MarketplaceReviewTask();
+                task.Show();
+            }
+            catch
+            {
+                // prevent exceptions from double-click
+            }
         }
 
         private void ReadVersionFromManifest()
