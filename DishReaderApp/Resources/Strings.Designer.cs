@@ -79,6 +79,24 @@ namespace DishReaderApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to by Dapper Panda.
+        /// </summary>
+        public static string Author {
+            get {
+                return ResourceManager.GetString("Author", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email feedback.
+        /// </summary>
+        public static string ButtonFeedback {
+            get {
+                return ResourceManager.GetString("ButtonFeedback", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to next.
         /// </summary>
         public static string ButtonNext {
@@ -97,11 +115,47 @@ namespace DishReaderApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rate this app.
+        /// </summary>
+        public static string ButtonRate {
+            get {
+                return ResourceManager.GetString("ButtonRate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to refresh.
         /// </summary>
         public static string ButtonRefresh {
             get {
                 return ResourceManager.GetString("ButtonRefresh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dish Reader is a simple and fast reader for political blog The Dish by Andrew Sullivan..
+        /// </summary>
+        public static string Description {
+            get {
+                return ResourceManager.GetString("Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This application is not associated with The Dish, Daily Beast or Andrew Sullivan..
+        /// </summary>
+        public static string Disclaimer {
+            get {
+                return ResourceManager.GetString("Disclaimer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do not hesitate to send any feedback or feature requests.
+        /// </summary>
+        public static string Feedback {
+            get {
+                return ResourceManager.GetString("Feedback", resourceCulture);
             }
         }
         
@@ -129,6 +183,33 @@ namespace DishReaderApp.Resources {
         public static string PageTitleBlog {
             get {
                 return ResourceManager.GetString("PageTitleBlog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please rate and comment on this app in Marketplace.
+        /// </summary>
+        public static string Rate {
+            get {
+                return ResourceManager.GetString("Rate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Version:.
+        /// </summary>
+        public static string Version {
+            get {
+                return ResourceManager.GetString("Version", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to www.dapperpanda.com.
+        /// </summary>
+        public static string Website {
+            get {
+                return ResourceManager.GetString("Website", resourceCulture);
             }
         }
     }

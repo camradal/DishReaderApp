@@ -123,14 +123,32 @@
   <data name="AppTitleCapitalized" xml:space="preserve">
     <value>DISH READER</value>
   </data>
+  <data name="Author" xml:space="preserve">
+    <value>by Dapper Panda</value>
+  </data>
+  <data name="ButtonFeedback" xml:space="preserve">
+    <value>Email feedback</value>
+  </data>
   <data name="ButtonNext" xml:space="preserve">
     <value>next</value>
   </data>
   <data name="ButtonPrevious" xml:space="preserve">
     <value>previous</value>
   </data>
+  <data name="ButtonRate" xml:space="preserve">
+    <value>Rate this app</value>
+  </data>
   <data name="ButtonRefresh" xml:space="preserve">
     <value>refresh</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Dish Reader is a simple and fast reader for political blog The Dish by Andrew Sullivan.</value>
+  </data>
+  <data name="Disclaimer" xml:space="preserve">
+    <value>This application is not associated with The Dish, Daily Beast or Andrew Sullivan.</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>Do not hesitate to send any feedback or feature requests</value>
   </data>
   <data name="MenuItemAbout" xml:space="preserve">
     <value>about</value>
@@ -140,5 +158,14 @@
   </data>
   <data name="PageTitleBlog" xml:space="preserve">
     <value>blog</value>
+  </data>
+  <data name="Rate" xml:space="preserve">
+    <value>Please rate and comment on this app in Marketplace</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Version:</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>www.dapperpanda.com</value>
   </data>
 </root>
