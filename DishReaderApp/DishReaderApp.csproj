@@ -120,6 +120,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\appbar.back.rest.png" />
+    <Content Include="Images\appbar.feature.email.rest.png" />
     <Content Include="Images\appbar.next.rest.png" />
     <Content Include="Images\appbar.refresh.rest.png" />
     <Content Include="Images\Application_Icon_173.png" />

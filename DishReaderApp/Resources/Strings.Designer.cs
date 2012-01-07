@@ -88,6 +88,15 @@ namespace DishReaderApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to email.
+        /// </summary>
+        public static string ButtonEmail {
+            get {
+                return ResourceManager.GetString("ButtonEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email feedback.
         /// </summary>
         public static string ButtonFeedback {

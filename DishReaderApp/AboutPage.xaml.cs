@@ -1,18 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using Microsoft.Phone.Controls;
-using System.Windows.Controls.Primitives;
-using Microsoft.Phone.Tasks;
 using System.IO;
+using System.Windows;
+using Microsoft.Phone.Controls;
+using Microsoft.Phone.Tasks;
 
 namespace DishReaderApp
 {
@@ -33,8 +23,8 @@ namespace DishReaderApp
             try
             {
                 EmailComposeTask task = new EmailComposeTask();
-                task.Subject = "Feedback about Dish Reader";
-                task.Body = "Hello, I've been using Dish Reader and I have following feedback\n\n";
+                task.Subject = "Feedback on Dish Reader";
+                task.Body = "Hello, I've been using Dish Reader and I have following feedback...\n\n";
                 task.To = "dapperpanda@gmail.com";
                 task.Show();
             }

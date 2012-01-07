@@ -126,6 +126,9 @@
   <data name="Author" xml:space="preserve">
     <value>by Dapper Panda</value>
   </data>
+  <data name="ButtonEmail" xml:space="preserve">
+    <value>email</value>
+  </data>
   <data name="ButtonFeedback" xml:space="preserve">
     <value>Email feedback</value>
   </data>
