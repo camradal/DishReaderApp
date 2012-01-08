@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.Net.NetworkInformation;
 using System.Windows;
 using DishReaderApp.DataAccess;
 using DishReaderApp.Models;
-using System.Net.NetworkInformation;
 using DishReaderApp.Resources;
 
 namespace DishReaderApp.ViewModels
@@ -15,12 +14,21 @@ namespace DishReaderApp.ViewModels
 
         public ObservableCollection<FeedItemViewModel> AllFeedItems { get; private set; }
         public bool IsDataLoaded { get; private set; }
-        public DateTime LastUpdatedTime { get; set; }
+        
+        public DateTime LastUpdated
+        {
+            get
+            {
+                return feedRepository.LastUpdated;
+            }
+            set
+            {
+                feedRepository.LastUpdated = value;
+            }
+        }
 
         public AllFeedItemsViewModel()
         {
-            // TODO: load last updated time in app.xml
-            LastUpdatedTime = DateTime.MinValue;
             AllFeedItems = new ObservableCollection<FeedItemViewModel>();
             feedRepository.FeedUpdated += new EventHandler<FeedUpdatedEventArgs>(feedRepository_FeedUpdated);
         }
@@ -53,12 +61,6 @@ namespace DishReaderApp.ViewModels
                     i++;
                 }
                 GlobalLoading.Instance.IsLoading = false;
-
-                var firstItem = e.Items.FirstOrDefault();
-                if (firstItem != null)
-                {
-                    LastUpdatedTime = firstItem.PublishedDate;
-                }
             });
 
             IsDataLoaded = true;

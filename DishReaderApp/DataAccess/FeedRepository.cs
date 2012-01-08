@@ -17,6 +17,8 @@ namespace DishReaderApp.DataAccess
         private readonly List<FeedItem> feedItems;
         private readonly Uri sourceUri;
 
+        public DateTime LastUpdated { get; set; }
+
         /// <summary>
         /// Register for this event to be modified when feed is updated
         /// </summary>
@@ -61,8 +63,14 @@ namespace DishReaderApp.DataAccess
                     IEnumerable<FeedItem> itemsToInsert = ExtractFeedItemsFromSyndicationString(results);
 
                     // extract unique items and insert them into beginning of storage collection
-                    IEnumerable<FeedItem> uniqueItems = itemsToInsert.TakeWhile(item => item != feedItems.FirstOrDefault());
+                    List<FeedItem> uniqueItems = itemsToInsert.Where(item => item.PublishedDate > LastUpdated).ToList();
                     feedItems.InsertRange(0, uniqueItems);
+
+                    // set last updated time to max date
+                    if (feedItems.Count > 0)
+                    {
+                        LastUpdated = uniqueItems.Max(item => item.PublishedDate);
+                    }
 
                     // this is async operation, raise event that collection has been updated and pass unique items
                     if (FeedUpdated != null)
