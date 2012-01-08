@@ -60,6 +60,9 @@ namespace DishReaderApp.ViewModels
                     AllFeedItems.Insert(i, new FeedItemViewModel(item, feedRepository));
                     i++;
                 }
+
+                // update converter values so the next items will be bold
+                DateTimeToFontWeightConverter.ThresholdDate = LastUpdated;
                 GlobalLoading.Instance.IsLoading = false;
             });
 

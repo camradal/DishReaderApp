@@ -67,7 +67,7 @@ namespace DishReaderApp.DataAccess
                     feedItems.InsertRange(0, uniqueItems);
 
                     // set last updated time to max date
-                    if (feedItems.Count > 0)
+                    if (uniqueItems.Count > 0)
                     {
                         LastUpdated = uniqueItems.Max(item => item.PublishedDate);
                     }
