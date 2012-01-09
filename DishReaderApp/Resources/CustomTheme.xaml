@@ -20,7 +20,7 @@
     <Style x:Key="ArticleNormalStyle" TargetType="TextBlock" BasedOn="{StaticResource PhoneTextNormalStyle}">
         <Setter Property="Foreground" Value="Black" />
     </Style>
-    <!-- elements -->
+    <!-- empty hyperlinks for big buttons -->
     <Style x:Key="EmptyButtonStyle" TargetType="HyperlinkButton">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Padding" Value="0" />

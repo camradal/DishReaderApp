@@ -15,18 +15,7 @@ namespace DishReaderApp.ViewModels
 
         public ObservableCollection<FeedItemViewModel> AllFeedItems { get; private set; }
         public bool IsDataLoaded { get; private set; }
-        
-        public DateTime LastUpdated
-        {
-            get
-            {
-                return feedRepository.LastUpdated;
-            }
-            set
-            {
-                feedRepository.LastUpdated = value;
-            }
-        }
+        public DateTime LastUpdated { get; set; }
 
         public AllFeedItemsViewModel()
         {
@@ -57,15 +46,6 @@ namespace DishReaderApp.ViewModels
             {
                 List<FeedItem> items = new List<FeedItem>(e.Items);
 
-                // make sure items do not show up as new if there are any updates
-                if (items.Count > 0)
-                {
-                    foreach (var item in AllFeedItems)
-                    {
-                        item.IsNew = false;
-                    }
-                }
-
                 // insert new items
                 int i = 0;
                 foreach (FeedItem item in e.Items)
@@ -73,6 +53,15 @@ namespace DishReaderApp.ViewModels
                     AllFeedItems.Insert(i, new FeedItemViewModel(item, feedRepository));
                     i++;
                 }
+
+                // make sure items do not show up as new if there are any updates
+                foreach (var item in AllFeedItems)
+                {
+                    item.IsNew = item.PublishedDate > LastUpdated;
+                }
+
+                // save last updated time from the actual repository
+                LastUpdated = feedRepository.LastUpdated;
 
                 GlobalLoading.Instance.IsLoading = false;
             });

@@ -69,7 +69,7 @@ namespace DishReaderApp.DataAccess
                     // set last updated time to max date
                     if (uniqueItems.Count > 0)
                     {
-                        LastUpdated = uniqueItems.Max(item => item.PublishedDate);
+                        LastUpdated = uniqueItems.First().PublishedDate;
                     }
 
                     // this is async operation, raise event that collection has been updated and pass unique items
