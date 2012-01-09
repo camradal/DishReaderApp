@@ -5,6 +5,7 @@ using System.Windows;
 using DishReaderApp.DataAccess;
 using DishReaderApp.Models;
 using DishReaderApp.Resources;
+using System.Collections.Generic;
 
 namespace DishReaderApp.ViewModels
 {
@@ -54,6 +55,18 @@ namespace DishReaderApp.ViewModels
         {
             Deployment.Current.Dispatcher.BeginInvoke(() =>
             {
+                List<FeedItem> items = new List<FeedItem>(e.Items);
+
+                // make sure items do not show up as new if there are any updates
+                if (items.Count > 0)
+                {
+                    foreach (var item in AllFeedItems)
+                    {
+                        item.IsNew = false;
+                    }
+                }
+
+                // insert new items
                 int i = 0;
                 foreach (FeedItem item in e.Items)
                 {
@@ -61,8 +74,6 @@ namespace DishReaderApp.ViewModels
                     i++;
                 }
 
-                // update converter values so the next items will be bold
-                DateTimeToFontWeightConverter.ThresholdDate = LastUpdated;
                 GlobalLoading.Instance.IsLoading = false;
             });
 

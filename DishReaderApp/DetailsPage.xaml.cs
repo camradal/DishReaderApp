@@ -44,8 +44,11 @@ namespace DishReaderApp
 
         private void webBrowser1_LoadCompleted(object sender, NavigationEventArgs e)
         {
+            if (navigating)
+            {
+                GlobalLoading.Instance.IsLoading = false;
+            }
             navigating = false;
-            GlobalLoading.Instance.IsLoading = false;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -57,14 +60,25 @@ namespace DishReaderApp
             }
         }
 
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            if (navigating)
+            {
+                GlobalLoading.Instance.IsLoading = false;
+                navigating = false;
+            }
+
+            base.OnNavigatedFrom(e);
+        }
+
         private void buttonEmail_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
-            webBrowser1.Navigate(webBrowser1.Source);
+            webBrowser1.Navigate(App.ViewModel.AllFeedItems[currentIndex].Url);
         }
 
         private void buttonPrevious_Click(object sender, System.EventArgs e)

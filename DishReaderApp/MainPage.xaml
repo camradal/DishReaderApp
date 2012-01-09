@@ -32,7 +32,7 @@
                     <DataTemplate>
                         <StackPanel Margin="0,0,0,17">
                             <TextBlock Text="{Binding Title}" TextWrapping="Wrap" Style="{StaticResource ArticleTitleStyle}"/>
-                            <TextBlock Text="{Binding PublishedDate, StringFormat=\{0:g\}}" TextWrapping="Wrap" Margin="12,0,12,0" Style="{StaticResource ArticleSubtleStyle}" FontWeight="{Binding PublishedDate, Converter={StaticResource DateTimeToFontWeightConverter}}"/>
+                            <TextBlock Text="{Binding PublishedDate, StringFormat=\{0:g\}}" TextWrapping="Wrap" Margin="12,0,12,0" Style="{StaticResource ArticleSubtleStyle}" FontWeight="{Binding IsNew, Converter={StaticResource BoolToFontWeightConverter}}"/>
                             <TextBlock Text="{Binding Summary}" TextWrapping="Wrap" Margin="12,0,12,0" Style="{StaticResource ArticleNormalStyle}"/>
                         </StackPanel>
                     </DataTemplate>

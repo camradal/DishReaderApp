@@ -66,5 +66,18 @@ namespace DishReaderApp.ViewModels
                 base.NotifyPropertyChanged("PublishedDate");
             }
         }
+
+        public bool IsNew
+        {
+            get
+            {
+                return feedItem.IsNew;
+            }
+            set
+            {
+                feedItem.IsNew = value;
+                base.NotifyPropertyChanged("IsNew");
+            }
+        }
     }
 }

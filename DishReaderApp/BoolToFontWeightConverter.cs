@@ -5,18 +5,11 @@ using System.Globalization;
 
 namespace DishReaderApp
 {
-    public class DateTimeToFontWeightConverter : IValueConverter
+    public sealed class BoolToFontWeightConverter : IValueConverter
     {
-        public static DateTime ThresholdDate { get; set; }
-
-        static DateTimeToFontWeightConverter()
-        {
-            ThresholdDate = DateTime.MinValue;
-        }
-
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value != null && (DateTime)value > ThresholdDate)
+            if (value != null && (bool)value)
             {
                 return FontWeights.Bold;
             }

@@ -97,7 +97,8 @@ namespace DishReaderApp.DataAccess
                            Title = item.Title.Text,
                            Summary = item.Summary.Text,
                            Url = item.Links[0].Uri,
-                           PublishedDate = item.PublishDate.DateTime
+                           PublishedDate = item.PublishDate.DateTime,
+                           IsNew = true
                        };
             }
         }

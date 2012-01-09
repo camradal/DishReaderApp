@@ -66,7 +66,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DateTimeToFontWeightConverter.cs" />
+    <Compile Include="BoolToFontWeightConverter.cs" />
     <Compile Include="DataAccess\FeedRepository.cs" />
     <Compile Include="DataAccess\FeedUpdatedEventArgs.cs" />
     <Compile Include="DetailsPage.xaml.cs">

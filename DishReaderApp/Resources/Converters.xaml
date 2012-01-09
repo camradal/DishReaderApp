@@ -6,6 +6,6 @@
    xmlns:c="clr-namespace:DishReaderApp"
    mc:Ignorable="d">
 
-    <c:DateTimeToFontWeightConverter x:Key="DateTimeToFontWeightConverter"/>
+    <c:BoolToFontWeightConverter x:Key="BoolToFontWeightConverter"/>
 
 </ResourceDictionary>

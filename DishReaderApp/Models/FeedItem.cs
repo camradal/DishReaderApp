@@ -8,5 +8,6 @@ namespace DishReaderApp.Models
         public string Summary { get; set; }
         public Uri Url { get; set; }
         public DateTime PublishedDate { get; set; }
+        public bool IsNew { get; set; }
     }
 }
