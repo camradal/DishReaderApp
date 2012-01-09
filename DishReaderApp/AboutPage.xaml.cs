@@ -3,6 +3,7 @@ using System.IO;
 using System.Windows;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Tasks;
+using DishReaderApp.Resources;
 
 namespace DishReaderApp
 {
@@ -23,9 +24,9 @@ namespace DishReaderApp
             try
             {
                 EmailComposeTask task = new EmailComposeTask();
-                task.Subject = "Feedback on Dish Reader";
-                task.Body = "Hello, I've been using Dish Reader and I have following feedback...\n\n";
-                task.To = "dapperpanda@gmail.com";
+                task.Subject = Strings.FeedbackOn;
+                task.Body = Strings.FeedbackTemplate;
+                task.To = Strings.ContactEmail;
                 task.Show();
             }
             catch

@@ -142,6 +142,15 @@ namespace DishReaderApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to dapperpanda@gmail.com.
+        /// </summary>
+        public static string ContactEmail {
+            get {
+                return ResourceManager.GetString("ContactEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dish Reader is a simple and fast reader for political blog The Dish by Andrew Sullivan..
         /// </summary>
         public static string Description {
@@ -169,11 +178,38 @@ namespace DishReaderApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Do not hesitate to send any feedback or feature requests.
+        ///   Looks up a localized string similar to We would love to hear your comments about Dish Reader. Send us your thoughts.
         /// </summary>
         public static string Feedback {
             get {
                 return ResourceManager.GetString("Feedback", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Feedback on Dish Reader.
+        /// </summary>
+        public static string FeedbackOn {
+            get {
+                return ResourceManager.GetString("FeedbackOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hello, I&apos;ve been using Dish Reader and I have the following feedback...\n\n.
+        /// </summary>
+        public static string FeedbackTemplate {
+            get {
+                return ResourceManager.GetString("FeedbackTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Interesting article....
+        /// </summary>
+        public static string InterestingArticle {
+            get {
+                return ResourceManager.GetString("InterestingArticle", resourceCulture);
             }
         }
         

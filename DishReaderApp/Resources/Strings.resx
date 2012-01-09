@@ -144,6 +144,9 @@
   <data name="ButtonRefresh" xml:space="preserve">
     <value>refresh</value>
   </data>
+  <data name="ContactEmail" xml:space="preserve">
+    <value>dapperpanda@gmail.com</value>
+  </data>
   <data name="Description" xml:space="preserve">
     <value>Dish Reader is a simple and fast reader for political blog The Dish by Andrew Sullivan.</value>
   </data>
@@ -154,7 +157,16 @@
     <value>Internet connection is not available</value>
   </data>
   <data name="Feedback" xml:space="preserve">
-    <value>Do not hesitate to send any feedback or feature requests</value>
+    <value>We would love to hear your comments about Dish Reader. Send us your thoughts</value>
+  </data>
+  <data name="FeedbackOn" xml:space="preserve">
+    <value>Feedback on Dish Reader</value>
+  </data>
+  <data name="FeedbackTemplate" xml:space="preserve">
+    <value>Hello, I've been using Dish Reader and I have the following feedback...\n\n</value>
+  </data>
+  <data name="InterestingArticle" xml:space="preserve">
+    <value>Interesting article...</value>
   </data>
   <data name="MenuItemAbout" xml:space="preserve">
     <value>about</value>

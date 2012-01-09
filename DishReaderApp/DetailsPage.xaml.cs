@@ -4,6 +4,7 @@ using DishReaderApp.Resources;
 using DishReaderApp.ViewModels;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using Microsoft.Phone.Tasks;
 
 namespace DishReaderApp
 {
@@ -73,7 +74,22 @@ namespace DishReaderApp
 
         private void buttonEmail_Click(object sender, EventArgs e)
         {
-            
+            try
+            {
+                var context = (FeedItemViewModel)this.DataContext;
+                Uri uri = webBrowser1.Source;
+                string url = uri != null ? uri.AbsoluteUri : context.Url.AbsolutePath;
+
+                EmailComposeTask task = new EmailComposeTask();
+                task.Subject = context.Title;
+                task.Body = string.Format("{0}\n\n{1}({2})", Strings.InterestingArticle, context.Title, url);
+                task.To = string.Empty;
+                task.Show();
+            }
+            catch
+            {
+                // prevent exceptions from double-click
+            }
         }
 
         private void buttonRefresh_Click(object sender, EventArgs e)

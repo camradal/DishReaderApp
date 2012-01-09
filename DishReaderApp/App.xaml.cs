@@ -53,7 +53,7 @@ namespace DishReaderApp
             if (System.Diagnostics.Debugger.IsAttached)
             {
                 // Display the current frame rate counters.
-                Application.Current.Host.Settings.EnableFrameRateCounter = true;
+                //Application.Current.Host.Settings.EnableFrameRateCounter = true;
 
                 // Show the areas of the app that are being redrawn in each frame.
                 //Application.Current.Host.Settings.EnableRedrawRegions = true;
@@ -89,7 +89,6 @@ namespace DishReaderApp
 
             // refresh the data
             App.ViewModel.LoadData();
-            LoadSettings();
         }
 
         // Code to execute when the application is deactivated (sent to background)
