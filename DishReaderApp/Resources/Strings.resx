@@ -163,7 +163,7 @@
     <value>Feedback on Dish Reader</value>
   </data>
   <data name="FeedbackTemplate" xml:space="preserve">
-    <value>Hello, I've been using Dish Reader and I have the following feedback...\n\n</value>
+    <value>Hello, I've been using Dish Reader and I have the following feedback...</value>
   </data>
   <data name="InterestingArticle" xml:space="preserve">
     <value>Interesting article...</value>

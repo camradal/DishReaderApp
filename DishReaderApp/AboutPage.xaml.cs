@@ -25,7 +25,7 @@ namespace DishReaderApp
             {
                 EmailComposeTask task = new EmailComposeTask();
                 task.Subject = Strings.FeedbackOn;
-                task.Body = Strings.FeedbackTemplate;
+                task.Body = Strings.FeedbackTemplate + "\n\n";
                 task.To = Strings.ContactEmail;
                 task.Show();
             }

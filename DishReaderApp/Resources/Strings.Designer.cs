@@ -196,7 +196,7 @@ namespace DishReaderApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hello, I&apos;ve been using Dish Reader and I have the following feedback...\n\n.
+        ///   Looks up a localized string similar to Hello, I&apos;ve been using Dish Reader and I have the following feedback....
         /// </summary>
         public static string FeedbackTemplate {
             get {
