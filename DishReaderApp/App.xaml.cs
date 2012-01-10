@@ -5,6 +5,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using System.IO.IsolatedStorage;
 using System;
+using System.Windows.Media;
 
 namespace DishReaderApp
 {
@@ -164,7 +165,10 @@ namespace DishReaderApp
 
             // Create the frame but don't set it as RootVisual yet; this allows the splash
             // screen to remain active until the application is ready to render.
-            RootFrame = new TransitionFrame();
+            RootFrame = new TransitionFrame()
+            {
+                Background = new SolidColorBrush(Colors.Transparent)
+            };
             RootFrame.Navigated += CompleteInitializePhoneApplication;
 
             // Handle navigation failures

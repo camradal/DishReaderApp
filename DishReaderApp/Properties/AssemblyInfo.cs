@@ -7,7 +7,7 @@ using System.Resources;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Dish Reader")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Dish Reader is a simple and fast reader for political blog The Dish by Andrew Sullivan.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Dapper Panda")]
 [assembly: AssemblyProduct("Dish Reader")]
@@ -32,6 +32,6 @@ using System.Resources;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.1.0")]
+[assembly: AssemblyFileVersion("1.1.0")]
 [assembly: NeutralResourcesLanguageAttribute("en-US")]
