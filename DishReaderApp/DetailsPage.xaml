@@ -1,15 +1,19 @@
-﻿<phone:PhoneApplicationPage xmlns:my="clr-namespace:Microsoft.Advertising.Mobile.UI;assembly=Microsoft.Advertising.Mobile.UI"  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone" xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:DishReaderApp_ViewModels="clr-namespace:DishReaderApp.ViewModels" 
+﻿<phone:PhoneApplicationPage
+    xmlns:my="clr-namespace:Microsoft.Advertising.Mobile.UI;assembly=Microsoft.Advertising.Mobile.UI"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:DishReaderApp_ViewModels="clr-namespace:DishReaderApp.ViewModels" 
     x:Class="DishReaderApp.DetailsPage"
-    FontFamily="{StaticResource PhoneFontFamilyNormal}"
-    FontSize="{StaticResource PhoneFontSizeNormal}"
-    Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     d:DesignHeight="768" d:DesignWidth="480"
-    shell:SystemTray.IsVisible="True" mc:Ignorable="d"
-    Style="{StaticResource TransitionPageStyle}">
+    shell:SystemTray.IsVisible="True" mc:Ignorable="d">
  
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="{StaticResource DefaultBackgroundColor}">
+    <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -18,8 +22,8 @@
         <my:AdControl Grid.Row="0" x:Name="AdBox" AdUnitId="79784" ApplicationId="bbb9b56b-6a13-4ef6-8308-f5fb22d2ab77" Margin="0" Width="480" Height="80" Style="{StaticResource AdControlStyle1}"/>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <phone:WebBrowser x:Name="webBrowser1" IsScriptEnabled="True" Margin="-12,0" />
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="0">
+            <phone:WebBrowser x:Name="webBrowser1" IsScriptEnabled="True" Margin="0" />
         </Grid>
     </Grid>
 

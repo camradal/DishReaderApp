@@ -56,7 +56,7 @@ namespace DishReaderApp
             if (System.Diagnostics.Debugger.IsAttached)
             {
                 // Display the current frame rate counters.
-                //Application.Current.Host.Settings.EnableFrameRateCounter = true;
+                Application.Current.Host.Settings.EnableFrameRateCounter = true;
 
                 // Show the areas of the app that are being redrawn in each frame.
                 //Application.Current.Host.Settings.EnableRedrawRegions = true;
@@ -166,7 +166,7 @@ namespace DishReaderApp
             // screen to remain active until the application is ready to render.
             RootFrame = new TransitionFrame()
             {
-                Background = new SolidColorBrush(Colors.Transparent)
+                Background = new SolidColorBrush(Colors.White)
             };
             RootFrame.Navigated += CompleteInitializePhoneApplication;
 
