@@ -55,10 +55,10 @@ namespace DishReaderApp
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             string selectedIndex = "";
-            if (State.ContainsKey("url") && !App.FastSwitching)
+            if (!App.FastSwitching && State.ContainsKey("url"))
             {
                 // recover from tombstoning
-                webBrowser1.Source = (Uri)State["url"];
+                webBrowser1.Navigate((Uri)State["url"]);
             }
             else if (NavigationContext.QueryString.TryGetValue("selectedItem", out selectedIndex))
             {
