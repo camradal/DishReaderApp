@@ -11,6 +11,10 @@ namespace DishReaderApp
 {
     public partial class App : Application
     {
+        private const string SettingLastUpdated = "LastUpdated";
+
+        private readonly IsolatedStorageSettings settings = IsolatedStorageSettings.ApplicationSettings;
+
         private static AllFeedItemsViewModel viewModel = null;
 
         public static bool FastSwitching { get; set; }
@@ -86,9 +90,6 @@ namespace DishReaderApp
         private void Application_Activated(object sender, ActivatedEventArgs e)
         {
             FastSwitching = e.IsApplicationInstancePreserved;
-
-            // always refresh the data
-            App.ViewModel.LoadData();
         }
 
         // Code to execute when the application is deactivated (sent to background)
@@ -129,23 +130,21 @@ namespace DishReaderApp
         
         private void LoadSettings()
         {
-            var settings = IsolatedStorageSettings.ApplicationSettings;
-            if (settings.Contains("LastUpdated"))
+            if (settings.Contains(SettingLastUpdated))
             {
-                App.ViewModel.LastUpdated = (DateTime)settings["LastUpdated"];
+                App.ViewModel.LastUpdated = (DateTime)settings[SettingLastUpdated];
             }
         }
 
         private void SaveSettings()
         {
-            var settings = IsolatedStorageSettings.ApplicationSettings;
-            if (!settings.Contains("LastUpdated"))
+            if (!settings.Contains(SettingLastUpdated))
             {
-                settings.Add("LastUpdated", App.ViewModel.LastUpdated);
+                settings.Add(SettingLastUpdated, App.ViewModel.LastUpdated);
             }
             else
             {
-                settings["LastUpdated"] = App.ViewModel.LastUpdated;
+                settings[SettingLastUpdated] = App.ViewModel.LastUpdated;
             }
         }
 

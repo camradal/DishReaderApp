@@ -14,7 +14,6 @@ namespace DishReaderApp.ViewModels
         private readonly FeedRepository feedRepository = new FeedRepository(new Uri(@"http://feeds.feedburner.com/andrewsullivan/rApM"));
 
         public ObservableCollection<FeedItemViewModel> AllFeedItems { get; private set; }
-        public bool IsDataLoaded { get; private set; }
         public DateTime LastUpdated { get; set; }
 
         public AllFeedItemsViewModel()
@@ -65,8 +64,6 @@ namespace DishReaderApp.ViewModels
 
                 GlobalLoading.Instance.IsLoading = false;
             });
-
-            IsDataLoaded = true;
         }
     }
 }
