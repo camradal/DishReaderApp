@@ -55,7 +55,12 @@ namespace DishReaderApp
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             string selectedIndex = "";
-            if (NavigationContext.QueryString.TryGetValue("selectedItem", out selectedIndex))
+            if (State.ContainsKey("url") && !App.FastSwitching)
+            {
+                // recover from tombstoning
+                webBrowser1.Source = (Uri)State["url"];
+            }
+            else if (NavigationContext.QueryString.TryGetValue("selectedItem", out selectedIndex))
             {
                 WebBrowserNavigate(int.Parse(selectedIndex));
             }
@@ -68,6 +73,9 @@ namespace DishReaderApp
                 GlobalLoading.Instance.IsLoading = false;
                 navigating = false;
             }
+
+            // remember for tombstoning
+            State["url"] = webBrowser1.Source;
 
             base.OnNavigatedFrom(e);
         }

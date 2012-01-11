@@ -13,35 +13,10 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/CustomTheme.xaml"/>
                 <ResourceDictionary Source="Resources/Converters.xaml"/>
+                <ResourceDictionary Source="Resources/Transitions.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <local:StringProvider x:Key="Strings" />
         </ResourceDictionary>
-        <Style x:Key="TransitionPageStyle" TargetType="phone:PhoneApplicationPage">
-            <Setter Property="toolkit:TransitionService.NavigationInTransition">
-                <Setter.Value>
-                    <toolkit:NavigationInTransition>
-                        <toolkit:NavigationInTransition.Backward>
-                            <toolkit:TurnstileTransition Mode="BackwardIn"/>
-                        </toolkit:NavigationInTransition.Backward>
-                        <toolkit:NavigationInTransition.Forward>
-                            <toolkit:TurnstileTransition Mode="ForwardIn"/>
-                        </toolkit:NavigationInTransition.Forward>
-                    </toolkit:NavigationInTransition>
-                </Setter.Value>
-            </Setter>
-            <Setter Property="toolkit:TransitionService.NavigationOutTransition">
-                <Setter.Value>
-                    <toolkit:NavigationOutTransition>
-                        <toolkit:NavigationOutTransition.Backward>
-                            <toolkit:TurnstileTransition Mode="BackwardOut"/>
-                        </toolkit:NavigationOutTransition.Backward>
-                        <toolkit:NavigationOutTransition.Forward>
-                            <toolkit:TurnstileTransition Mode="ForwardOut"/>
-                        </toolkit:NavigationOutTransition.Forward>
-                    </toolkit:NavigationOutTransition>
-                </Setter.Value>
-            </Setter>
-        </Style>
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

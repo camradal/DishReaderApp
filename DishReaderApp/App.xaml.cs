@@ -1,17 +1,19 @@
-﻿using System.Windows;
+﻿using System;
+using System.IO.IsolatedStorage;
+using System.Windows;
+using System.Windows.Media;
 using System.Windows.Navigation;
 using DishReaderApp.ViewModels;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using System.IO.IsolatedStorage;
-using System;
-using System.Windows.Media;
 
 namespace DishReaderApp
 {
     public partial class App : Application
     {
         private static AllFeedItemsViewModel viewModel = null;
+
+        public static bool FastSwitching { get; set; }
 
         /// <summary>
         /// All feed items are bound to this view model
@@ -83,12 +85,9 @@ namespace DishReaderApp
         // This code will not execute when the application is first launched
         private void Application_Activated(object sender, ActivatedEventArgs e)
         {
-            if (e.IsApplicationInstancePreserved)
-            {
-                // fast app switching, no-op in our case
-            }
+            FastSwitching = e.IsApplicationInstancePreserved;
 
-            // refresh the data
+            // always refresh the data
             App.ViewModel.LoadData();
         }
 
