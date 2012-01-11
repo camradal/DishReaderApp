@@ -15,7 +15,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <my:AdControl Grid.Row="0" x:Name="AdBox" AdUnitId="79784" ApplicationId="bbb9b56b-6a13-4ef6-8308-f5fb22d2ab77" Margin="0" Width="480" Height="80" />
+        <my:AdControl Grid.Row="0" x:Name="AdBox" AdUnitId="79784" ApplicationId="bbb9b56b-6a13-4ef6-8308-f5fb22d2ab77" Margin="0" Width="480" Height="80" Style="{StaticResource AdControlStyle1}"/>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
