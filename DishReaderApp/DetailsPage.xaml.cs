@@ -38,7 +38,7 @@ namespace DishReaderApp
         {
             if (!navigating)
             {
-                GlobalLoading.Instance.IsLoading = true;
+                GlobalLoading.Instance.LoadingWithText = Strings.Loading;
             }
             navigating = true;
         }
@@ -58,6 +58,7 @@ namespace DishReaderApp
             if (!App.FastSwitching && State.ContainsKey("url"))
             {
                 // recover from tombstoning
+                currentIndex = (int)State["currentIndex"];
                 webBrowser1.Navigate((Uri)State["url"]);
             }
             else if (NavigationContext.QueryString.TryGetValue("selectedItem", out selectedIndex))
@@ -75,6 +76,7 @@ namespace DishReaderApp
             }
 
             // remember for tombstoning
+            State["currentIndex"] = currentIndex;
             State["url"] = webBrowser1.Source;
 
             base.OnNavigatedFrom(e);

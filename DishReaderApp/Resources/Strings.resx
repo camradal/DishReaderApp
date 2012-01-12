@@ -168,6 +168,18 @@
   <data name="InterestingArticle" xml:space="preserve">
     <value>Interesting article...</value>
   </data>
+  <data name="LoadedManyNewPostsTemplate" xml:space="preserve">
+    <value>Downloaded {0} new posts</value>
+  </data>
+  <data name="LoadedNoNewPosts" xml:space="preserve">
+    <value>No new posts</value>
+  </data>
+  <data name="LoadedSingleNewPost" xml:space="preserve">
+    <value>Downloaded 1 new post</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
   <data name="MenuItemAbout" xml:space="preserve">
     <value>about</value>
   </data>

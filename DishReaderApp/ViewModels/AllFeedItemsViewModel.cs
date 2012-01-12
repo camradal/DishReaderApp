@@ -6,6 +6,7 @@ using DishReaderApp.DataAccess;
 using DishReaderApp.Models;
 using DishReaderApp.Resources;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace DishReaderApp.ViewModels
 {
@@ -14,6 +15,7 @@ namespace DishReaderApp.ViewModels
         private readonly FeedRepository feedRepository = new FeedRepository(new Uri(@"http://feeds.feedburner.com/andrewsullivan/rApM"));
 
         public ObservableCollection<FeedItemViewModel> AllFeedItems { get; private set; }
+        public bool IsDataLoaded { get; set; }
         public DateTime LastUpdated { get; set; }
 
         public AllFeedItemsViewModel()
@@ -23,14 +25,14 @@ namespace DishReaderApp.ViewModels
         }
 
         /// <summary>
-        /// Load data asynchronously, to get the result, need to register for FeedUpdated event
+        /// Load data asynchronously
         /// </summary>
         public void LoadData()
         {
             // only load data for the network if connection is available
             if (NetworkInterface.GetIsNetworkAvailable())
             {
-                GlobalLoading.Instance.IsLoading = true;
+                GlobalLoading.Instance.LoadingWithText = Strings.Loading;
                 feedRepository.LoadFeedsAsync();
             }
             else
@@ -54,14 +56,42 @@ namespace DishReaderApp.ViewModels
                 }
 
                 // make sure items do not show up as new if there are any updates
+                int newItems = 0;
                 foreach (var item in AllFeedItems)
                 {
-                    item.IsNew = item.PublishedDate > LastUpdated;
+                    if (item.PublishedDate > LastUpdated)
+                    {
+                        item.IsNew = true;
+                        newItems++;
+                    }
+                    else
+                    {
+                        item.IsNew = false;
+                    }
+                }
+
+                if (newItems == 1)
+                {
+                    GlobalLoading.Instance.LoadingWithText = Strings.LoadedSingleNewPost;
+                }
+                else if (newItems > 0)
+                {
+                    GlobalLoading.Instance.LoadingWithText = string.Format(Strings.LoadedManyNewPostsTemplate, newItems);
+                }
+                else
+                {
+                    GlobalLoading.Instance.LoadingWithText = Strings.LoadedNoNewPosts;
                 }
 
                 // save last updated time from the actual repository
                 LastUpdated = feedRepository.LastUpdated;
+            });
 
+            IsDataLoaded = true;
+            Thread.CurrentThread.Join(1500);
+            Deployment.Current.Dispatcher.BeginInvoke(() =>
+            {
+                GlobalLoading.Instance.IsLoading = false;
                 GlobalLoading.Instance.IsLoading = false;
             });
         }

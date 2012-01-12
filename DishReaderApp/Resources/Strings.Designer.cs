@@ -214,6 +214,42 @@ namespace DishReaderApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Downloaded {0} new posts.
+        /// </summary>
+        public static string LoadedManyNewPostsTemplate {
+            get {
+                return ResourceManager.GetString("LoadedManyNewPostsTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No new posts.
+        /// </summary>
+        public static string LoadedNoNewPosts {
+            get {
+                return ResourceManager.GetString("LoadedNoNewPosts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Downloaded 1 new post.
+        /// </summary>
+        public static string LoadedSingleNewPost {
+            get {
+                return ResourceManager.GetString("LoadedSingleNewPost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loading....
+        /// </summary>
+        public static string Loading {
+            get {
+                return ResourceManager.GetString("Loading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to about.
         /// </summary>
         public static string MenuItemAbout {

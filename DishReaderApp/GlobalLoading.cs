@@ -9,7 +9,8 @@ namespace DishReaderApp
     {
         private ProgressIndicator indicator;
         private static GlobalLoading instance;
-        private int _loadingCount;
+        private int loadingCount;
+        private string text;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -27,21 +28,31 @@ namespace DishReaderApp
         {
             get
             {
-                return _loadingCount > 0;
+                return loadingCount > 0;
             }
             set
             {
                 bool loading = IsLoading;
                 if (value)
                 {
-                    ++_loadingCount;
+                    ++loadingCount;
                 }
                 else
                 {
-                    --_loadingCount;
+                    --loadingCount;
+                    text = string.Empty;
                 }
 
                 NotifyValueChanged();
+            }
+        }
+
+        public string LoadingWithText
+        {
+            set
+            {
+                text = value;
+                IsLoading = true;
             }
         }
 
@@ -91,7 +102,16 @@ namespace DishReaderApp
         {
             if (indicator != null)
             {
-                indicator.IsIndeterminate = _loadingCount > 0 || IsDataManagerLoading;
+                indicator.IsIndeterminate = loadingCount > 0 || IsDataManagerLoading;
+
+                if (!string.IsNullOrEmpty(text))
+                {
+                    indicator.Text = text;
+                }
+                else
+                {
+                    indicator.Text = string.Empty;
+                }
 
                 // for now, just make sure it's always visible.
                 if (indicator.IsVisible == false)
