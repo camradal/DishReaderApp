@@ -60,6 +60,7 @@ namespace DishReaderApp
                 // recover from tombstoning
                 currentIndex = (int)State["currentIndex"];
                 webBrowser1.Navigate((Uri)State["url"]);
+                EnableOrDisableNavigation(currentIndex);
             }
             else if (NavigationContext.QueryString.TryGetValue("selectedItem", out selectedIndex))
             {
@@ -131,7 +132,7 @@ namespace DishReaderApp
         private void EnableOrDisableNavigation(int index)
         {
             var buttonPrevious = (ApplicationBarIconButton)ApplicationBar.Buttons[2];
-            buttonPrevious.IsEnabled = index > 0;
+            buttonPrevious.IsEnabled = index > 0 && App.ViewModel.AllFeedItems.Count != 0;
 
             var buttonNext = (ApplicationBarIconButton)ApplicationBar.Buttons[3];
             buttonNext.IsEnabled = index < App.ViewModel.AllFeedItems.Count - 1;
