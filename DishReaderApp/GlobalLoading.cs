@@ -40,19 +40,18 @@ namespace DishReaderApp
                 else
                 {
                     --loadingCount;
-                    text = string.Empty;
                 }
 
                 NotifyValueChanged();
             }
         }
 
-        public string LoadingWithText
+        public string LoadingText
         {
             set
             {
                 text = value;
-                IsLoading = true;
+                NotifyValueChanged();
             }
         }
 
@@ -104,14 +103,8 @@ namespace DishReaderApp
             {
                 indicator.IsIndeterminate = loadingCount > 0 || IsDataManagerLoading;
 
-                if (!string.IsNullOrEmpty(text))
-                {
-                    indicator.Text = text;
-                }
-                else
-                {
-                    indicator.Text = string.Empty;
-                }
+                // set text value
+                indicator.Text = text;
 
                 // for now, just make sure it's always visible.
                 if (indicator.IsVisible == false)

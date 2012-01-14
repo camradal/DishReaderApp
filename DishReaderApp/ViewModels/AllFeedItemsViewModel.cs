@@ -32,7 +32,7 @@ namespace DishReaderApp.ViewModels
             // only load data for the network if connection is available
             if (NetworkInterface.GetIsNetworkAvailable())
             {
-                GlobalLoading.Instance.LoadingWithText = Strings.Loading;
+                ShowLoadingMessage();
                 feedRepository.LoadFeedsAsync();
             }
             else
@@ -45,55 +45,77 @@ namespace DishReaderApp.ViewModels
         {
             Deployment.Current.Dispatcher.BeginInvoke(() =>
             {
-                List<FeedItem> items = new List<FeedItem>(e.Items);
-
-                // insert new items
-                int i = 0;
-                foreach (FeedItem item in e.Items)
-                {
-                    AllFeedItems.Insert(i, new FeedItemViewModel(item, feedRepository));
-                    i++;
-                }
-
-                // make sure items do not show up as new if there are any updates
-                int newItems = 0;
-                foreach (var item in AllFeedItems)
-                {
-                    if (item.PublishedDate > LastUpdated)
-                    {
-                        item.IsNew = true;
-                        newItems++;
-                    }
-                    else
-                    {
-                        item.IsNew = false;
-                    }
-                }
-
-                if (newItems == 1)
-                {
-                    GlobalLoading.Instance.LoadingWithText = Strings.LoadedSingleNewPost;
-                }
-                else if (newItems > 0)
-                {
-                    GlobalLoading.Instance.LoadingWithText = string.Format(Strings.LoadedManyNewPostsTemplate, newItems);
-                }
-                else
-                {
-                    GlobalLoading.Instance.LoadingWithText = Strings.LoadedNoNewPosts;
-                }
+                UpdateViewModelWithNewItems(e.Items);
+                int newItems = MarkNewItemsInViewModel();
+                DisplayStatusMessage(newItems);
 
                 // save last updated time from the actual repository
                 LastUpdated = feedRepository.LastUpdated;
             });
-
             IsDataLoaded = true;
-            Thread.CurrentThread.Join(1500);
+
+            // wait a bit to dismiss the message
+            Thread.CurrentThread.Join(2500);
             Deployment.Current.Dispatcher.BeginInvoke(() =>
             {
-                GlobalLoading.Instance.IsLoading = false;
-                GlobalLoading.Instance.IsLoading = false;
+                RemoveLoadingMessage();
             });
+        }
+
+        private static void ShowLoadingMessage()
+        {
+            GlobalLoading.Instance.IsLoading = true;
+            GlobalLoading.Instance.LoadingText = Strings.Loading;
+        }
+
+        private static void RemoveLoadingMessage()
+        {
+            GlobalLoading.Instance.IsLoading = false;
+            GlobalLoading.Instance.LoadingText = null;
+        }
+
+        private static void DisplayStatusMessage(int newItems)
+        {
+            if (newItems == 1)
+            {
+                GlobalLoading.Instance.LoadingText = Strings.LoadedSingleNewPost;
+            }
+            else if (newItems > 0)
+            {
+                GlobalLoading.Instance.LoadingText = string.Format(Strings.LoadedManyNewPostsTemplate, newItems);
+            }
+            else
+            {
+                GlobalLoading.Instance.LoadingText = Strings.LoadedNoNewPosts;
+            }
+        }
+
+        private int MarkNewItemsInViewModel()
+        {
+            int newItems = 0;
+            foreach (var item in AllFeedItems)
+            {
+                if (item.PublishedDate > LastUpdated)
+                {
+                    item.IsNew = true;
+                    newItems++;
+                }
+                else
+                {
+                    item.IsNew = false;
+                }
+            }
+            return newItems;
+        }
+
+        private void UpdateViewModelWithNewItems(List<FeedItem> items)
+        {
+            int i = 0;
+            foreach (FeedItem item in items)
+            {
+                AllFeedItems.Insert(i, new FeedItemViewModel(item, feedRepository));
+                i++;
+            }
         }
     }
 }

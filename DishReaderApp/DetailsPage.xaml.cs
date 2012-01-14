@@ -38,7 +38,8 @@ namespace DishReaderApp
         {
             if (!navigating)
             {
-                GlobalLoading.Instance.LoadingWithText = Strings.Loading;
+                GlobalLoading.Instance.IsLoading = true;
+                GlobalLoading.Instance.LoadingText = Strings.Loading;
             }
             navigating = true;
         }
@@ -48,6 +49,7 @@ namespace DishReaderApp
             if (navigating)
             {
                 GlobalLoading.Instance.IsLoading = false;
+                GlobalLoading.Instance.LoadingText = null;
             }
             navigating = false;
         }

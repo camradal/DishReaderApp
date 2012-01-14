@@ -9,11 +9,11 @@ namespace DishReaderApp.DataAccess
     /// </summary>
     public sealed class FeedUpdatedEventArgs : EventArgs
     {
-        public FeedUpdatedEventArgs(IEnumerable<FeedItem> items)
+        public FeedUpdatedEventArgs(List<FeedItem> items)
         {
             this.Items = items;
         }
 
-        public IEnumerable<FeedItem> Items { get; private set; }
+        public List<FeedItem> Items { get; private set; }
     }
 }
