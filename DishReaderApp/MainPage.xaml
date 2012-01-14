@@ -26,20 +26,17 @@
             <TextBlock x:Name="ApplicationTitle" Text="{Binding Source={StaticResource Strings}, Path=Resources.AppTitleCapitalized}" Style="{StaticResource AppTitleStyle}"/>
         </StackPanel>
 
-        <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="2" Margin="12,0,0,0">
-            <ListBox x:Name="MainListBox" Margin="0,0,0,0" ItemsSource="{Binding AllFeedItems}" SelectionChanged="ListBox_SelectionChanged" Style="{StaticResource ListBoxContrastStyle}">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Margin="0,0,0,17">
-                            <TextBlock Text="{Binding Title}" TextWrapping="Wrap" Style="{StaticResource ArticleTitleStyle}"/>
-                            <TextBlock Text="{Binding PublishedDate, StringFormat=\{0:g\}}" TextWrapping="Wrap" Margin="12,0,12,0" Style="{StaticResource ArticleSubtleStyle}" FontWeight="{Binding IsNew, Converter={StaticResource BoolToFontWeightConverter}}"/>
-                            <TextBlock Text="{Binding Summary}" TextWrapping="Wrap" Margin="12,0,12,0" Style="{StaticResource ArticleNormalStyle}"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-        </Grid>
+        <ListBox x:Name="MainListBox" Grid.Row="2" Margin="12,0,0,0" ItemsSource="{Binding AllFeedItems}" SelectionChanged="ListBox_SelectionChanged" Style="{StaticResource ListBoxContrastStyle}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="0,0,0,17">
+                        <TextBlock Text="{Binding Title}" TextWrapping="Wrap" Style="{StaticResource ArticleTitleStyle}"/>
+                        <TextBlock Text="{Binding PublishedDate, StringFormat=\{0:g\}}" TextWrapping="Wrap" Margin="12,0,12,0" Style="{StaticResource ArticleSubtleStyle}" FontWeight="{Binding IsNew, Converter={StaticResource BoolToFontWeightConverter}}"/>
+                        <TextBlock Text="{Binding Summary}" TextWrapping="Wrap" Margin="12,0,12,0" Style="{StaticResource ArticleNormalStyle}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
  
     <phone:PhoneApplicationPage.ApplicationBar>

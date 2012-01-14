@@ -75,6 +75,7 @@ namespace DishReaderApp
             if (navigating)
             {
                 GlobalLoading.Instance.IsLoading = false;
+                GlobalLoading.Instance.LoadingText = null;
                 navigating = false;
             }
 
