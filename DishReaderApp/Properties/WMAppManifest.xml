@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2009/deployment" AppPlatformVersion="7.1">
-  <App xmlns="" ProductID="{81b25f5a-ee37-4bf9-96bc-3ac93d2b9ccd}" Title="Dish Reader" RuntimeType="Silverlight" Version="1.1.0.0" Genre="apps.normal" Author="Dapper Panda" Description="Dish Reader is a simple and fast reader for political blog The Dish by Andrew Sullivan" Publisher="Dapper Panda">
+  <App xmlns="" ProductID="{81b25f5a-ee37-4bf9-96bc-3ac93d2b9ccd}" Title="Dish Reader" RuntimeType="Silverlight" Version="1.2.0.0" Genre="apps.normal" Author="Dapper Panda" Description="Dish Reader is a simple and fast reader for political blog The Dish by Andrew Sullivan" Publisher="Dapper Panda">
     <IconPath IsRelative="true" IsResource="false">Images\Application_Icon_62.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
