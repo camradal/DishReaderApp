@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:DishReaderApp_ViewModels="clr-namespace:DishReaderApp.ViewModels" 
     x:Class="DishReaderApp.DetailsPage"
-    SupportedOrientations="Portrait" Orientation="Portrait"
+    SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
     d:DesignHeight="768" d:DesignWidth="480"
     shell:SystemTray.IsVisible="True" mc:Ignorable="d">
  
