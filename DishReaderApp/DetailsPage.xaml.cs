@@ -5,6 +5,7 @@ using DishReaderApp.ViewModels;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Microsoft.Phone.Tasks;
+using Utilities;
 
 namespace DishReaderApp
 {
@@ -56,6 +57,8 @@ namespace DishReaderApp
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            OrientationHelper.HideSystemTrayWhenInLandscapeMode(this.Orientation);
+
             string selectedIndex = "";
             if (!App.FastSwitching && State.ContainsKey("url"))
             {
@@ -144,6 +147,11 @@ namespace DishReaderApp
         private static bool IsIndexValid(int newIndex)
         {
             return newIndex >= 0 && newIndex < App.ViewModel.AllFeedItems.Count;
+        }
+
+        private void PhoneApplicationPage_OrientationChanged(object sender, OrientationChangedEventArgs e)
+        {
+            OrientationHelper.HideSystemTrayWhenInLandscapeMode(e.Orientation);
         }
     }
 }

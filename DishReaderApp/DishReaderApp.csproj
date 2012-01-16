@@ -92,6 +92,7 @@
       <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="StringProvider.cs" />
+    <Compile Include="Utilities\OrientationHelper.cs" />
     <Compile Include="ViewModels\AllFeedItemsViewModel.cs" />
     <Compile Include="ViewModels\FeedItemViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />

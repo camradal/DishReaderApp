@@ -9,7 +9,7 @@
     mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
     SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
     shell:SystemTray.IsVisible="True"
-    Style="{StaticResource TransitionPageStyle}">
+    Style="{StaticResource TransitionPageStyle}" OrientationChanged="PhoneApplicationPage_OrientationChanged">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
