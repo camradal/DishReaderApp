@@ -7,7 +7,7 @@ namespace Utilities
     {
         public static void HideSystemTrayWhenInLandscapeMode(PageOrientation orientation)
         {
-            SystemTray.Opacity = ((orientation & PageOrientation.Landscape) == PageOrientation.Landscape) ? 0 : 1;
+            SystemTray.IsVisible = ((orientation & PageOrientation.Landscape) == PageOrientation.Landscape) ? false : true;
         }
     }
 }
