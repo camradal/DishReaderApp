@@ -28,8 +28,6 @@ namespace DishReaderApp
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
-            OrientationHelper.HideSystemTrayWhenInLandscapeMode(this.Orientation);
-
             if (!App.ViewModel.IsDataLoaded)
             {
                 App.ViewModel.LoadData();
@@ -68,6 +66,11 @@ namespace DishReaderApp
         private void PhoneApplicationPage_OrientationChanged(object sender, OrientationChangedEventArgs e)
         {
             OrientationHelper.HideSystemTrayWhenInLandscapeMode(e.Orientation);
+        }
+
+        private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            OrientationHelper.HideSystemTrayWhenInLandscapeMode(this.Orientation);
         }
     }
 }

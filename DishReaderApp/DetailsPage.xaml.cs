@@ -57,8 +57,6 @@ namespace DishReaderApp
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            OrientationHelper.HideSystemTrayWhenInLandscapeMode(this.Orientation);
-
             string selectedIndex = "";
             if (!App.FastSwitching && State.ContainsKey("url"))
             {
@@ -152,6 +150,11 @@ namespace DishReaderApp
         private void PhoneApplicationPage_OrientationChanged(object sender, OrientationChangedEventArgs e)
         {
             OrientationHelper.HideSystemTrayWhenInLandscapeMode(e.Orientation);
+        }
+
+        private void PhoneApplicationPage_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        {
+            OrientationHelper.HideSystemTrayWhenInLandscapeMode(this.Orientation);
         }
     }
 }

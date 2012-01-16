@@ -1,9 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Windows;
+using DishReaderApp.Resources;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Tasks;
-using DishReaderApp.Resources;
+using Utilities;
 
 namespace DishReaderApp
 {
@@ -17,6 +18,16 @@ namespace DishReaderApp
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
             ReadVersionFromManifest();
+        }
+
+        private void PhoneApplicationPage_OrientationChanged(object sender, OrientationChangedEventArgs e)
+        {
+            OrientationHelper.HideSystemTrayWhenInLandscapeMode(e.Orientation);
+        }
+
+        private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            OrientationHelper.HideSystemTrayWhenInLandscapeMode(this.Orientation);
         }
 
         private void feedbackButton_Click(object sender, RoutedEventArgs e)
