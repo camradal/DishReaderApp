@@ -93,6 +93,7 @@
     <Compile Include="Utilities\GlobalLoading.cs" />
     <Compile Include="Utilities\OrientationHelper.cs" />
     <Compile Include="Utilities\StringProvider.cs" />
+    <Compile Include="Utilities\HtmlToTextConverter.cs" />
     <Compile Include="ViewModels\AllFeedItemsViewModel.cs" />
     <Compile Include="ViewModels\FeedItemViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />

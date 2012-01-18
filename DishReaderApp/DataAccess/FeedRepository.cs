@@ -6,6 +6,7 @@ using System.Net;
 using System.ServiceModel.Syndication;
 using System.Xml;
 using DishReaderApp.Models;
+using DishReaderApp.Utilities;
 
 namespace DishReaderApp.DataAccess
 {
@@ -14,6 +15,7 @@ namespace DishReaderApp.DataAccess
     /// </summary>
     public sealed class FeedRepository
     {
+        private readonly HtmlToTextConverter htmlConverter = new HtmlToTextConverter();
         private readonly List<FeedItem> feedItems;
         private readonly Uri sourceUri;
 
@@ -94,8 +96,8 @@ namespace DishReaderApp.DataAccess
                 return from item in feed.Items
                        select new FeedItem()
                        {
-                           Title = item.Title.Text,
-                           Summary = item.Summary.Text,
+                           Title = htmlConverter.Convert(item.Title.Text),
+                           Summary = htmlConverter.Convert(item.Summary.Text),
                            Url = item.Links[0].Uri,
                            PublishedDate = item.PublishDate.DateTime,
                            IsNew = true
