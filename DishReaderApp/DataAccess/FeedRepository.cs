@@ -6,7 +6,7 @@ using System.Net;
 using System.ServiceModel.Syndication;
 using System.Xml;
 using DishReaderApp.Models;
-using DishReaderApp.Utilities;
+using Utilities;
 
 namespace DishReaderApp.DataAccess
 {

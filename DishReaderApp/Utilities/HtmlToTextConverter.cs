@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Data;
 
-namespace DishReaderApp.Utilities
+namespace Utilities
 {
     public sealed class HtmlToTextConverter : IValueConverter
     {

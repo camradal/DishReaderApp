@@ -92,6 +92,7 @@
     <Compile Include="Utilities\BoolToFontWeightConverter.cs" />
     <Compile Include="Utilities\GlobalLoading.cs" />
     <Compile Include="Utilities\OrientationHelper.cs" />
+    <Compile Include="Utilities\ReviewThisAppTask.cs" />
     <Compile Include="Utilities\StringProvider.cs" />
     <Compile Include="Utilities\HtmlToTextConverter.cs" />
     <Compile Include="ViewModels\AllFeedItemsViewModel.cs" />

@@ -259,6 +259,24 @@ namespace DishReaderApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please take a moment to rate or review this app. We&apos;d love to hear from you..
+        /// </summary>
+        public static string MessageBoxRateThisAppSummary {
+            get {
+                return ResourceManager.GetString("MessageBoxRateThisAppSummary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rate or review this app?.
+        /// </summary>
+        public static string MessageBoxRateThisAppTitle {
+            get {
+                return ResourceManager.GetString("MessageBoxRateThisAppTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to about.
         /// </summary>
         public static string PageTitleAbout {

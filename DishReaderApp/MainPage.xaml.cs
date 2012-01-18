@@ -24,6 +24,15 @@ namespace DishReaderApp
 
             // initialize view model after the page is loaded
             DataContext = App.ViewModel;
+
+            Loaded += new RoutedEventHandler(MainPage_Loaded);
+        }
+
+        void MainPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            ReviewThisAppTask rate = new ReviewThisAppTask();
+            rate.NumberOfStarts++;
+            rate.ShowAfterThreshold();
         }
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
