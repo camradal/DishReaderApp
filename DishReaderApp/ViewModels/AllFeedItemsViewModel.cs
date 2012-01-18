@@ -1,12 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.NetworkInformation;
+using System.Threading;
 using System.Windows;
 using DishReaderApp.DataAccess;
 using DishReaderApp.Models;
 using DishReaderApp.Resources;
-using System.Collections.Generic;
-using System.Threading;
+using Utilities;
 
 namespace DishReaderApp.ViewModels
 {

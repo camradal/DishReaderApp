@@ -6,6 +6,7 @@ using System.Windows.Navigation;
 using DishReaderApp.ViewModels;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using Utilities;
 
 namespace DishReaderApp
 {

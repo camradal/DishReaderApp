@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Data;
 using System.Globalization;
 
-namespace DishReaderApp
+namespace Utilities
 {
     public sealed class BoolToFontWeightConverter : IValueConverter
     {

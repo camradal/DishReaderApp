@@ -71,13 +71,11 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BoolToFontWeightConverter.cs" />
     <Compile Include="DataAccess\FeedRepository.cs" />
     <Compile Include="DataAccess\FeedUpdatedEventArgs.cs" />
     <Compile Include="DetailsPage.xaml.cs">
       <DependentUpon>DetailsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GlobalLoading.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -91,8 +89,10 @@
     <Compile Include="AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StringProvider.cs" />
+    <Compile Include="Utilities\BoolToFontWeightConverter.cs" />
+    <Compile Include="Utilities\GlobalLoading.cs" />
     <Compile Include="Utilities\OrientationHelper.cs" />
+    <Compile Include="Utilities\StringProvider.cs" />
     <Compile Include="ViewModels\AllFeedItemsViewModel.cs" />
     <Compile Include="ViewModels\FeedItemViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />

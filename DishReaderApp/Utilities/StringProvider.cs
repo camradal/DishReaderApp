@@ -1,6 +1,6 @@
 ﻿using DishReaderApp.Resources;
 
-namespace DishReaderApp
+namespace Utilities
 {
     /// <summary>
     /// Localized resource provider

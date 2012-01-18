@@ -5,7 +5,8 @@
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
-    xmlns:local="clr-namespace:DishReaderApp">
+    xmlns:local="clr-namespace:DishReaderApp"
+    xmlns:utilities="clr-namespace:Utilities">
 
     <!--Application Resources-->
     <Application.Resources>
@@ -16,7 +17,7 @@
                 <ResourceDictionary Source="Resources/Converters.xaml"/>
                 <ResourceDictionary Source="Resources/Transitions.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-            <local:StringProvider x:Key="Strings" />
+            <utilities:StringProvider x:Key="Strings" />
         </ResourceDictionary>
     </Application.Resources>
 
