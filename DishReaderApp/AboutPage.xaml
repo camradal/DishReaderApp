@@ -20,7 +20,7 @@
         </Grid.RowDefinitions>
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,16">
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
             <TextBlock x:Name="ApplicationTitle" Text="{Binding Source={StaticResource Strings}, Path=Resources.AppTitleCapitalized}" Style="{StaticResource PhoneTextNormalStyle}"/>
             <TextBlock x:Name="PageTitle" Text="{Binding Resources.PageTitleAbout, Source={StaticResource Strings}}" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
@@ -28,7 +28,7 @@
         <ListBox Grid.Row="1" Margin="12,0,12,12">
             <ListBoxItem>
                 <StackPanel Orientation="Horizontal">
-                    <Canvas Margin="12" Height="173" Width="173" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{StaticResource PhoneAccentBrush}">
+                    <Canvas Margin="12,0,12,12" Height="173" Width="173" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{StaticResource PhoneAccentBrush}">
                         <Image Name="imageLogo" Stretch="Fill"  Source="/Images/Application_Icon_173.png" />
                     </Canvas>
                     <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
