@@ -8,6 +8,7 @@
     xmlns:local="clr-namespace:DishReaderApp"
     xmlns:utilities="clr-namespace:Utilities">
 
+
     <!--Application Resources-->
     <Application.Resources>
         <ResourceDictionary>

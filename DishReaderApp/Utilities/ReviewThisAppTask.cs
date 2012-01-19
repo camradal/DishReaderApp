@@ -30,7 +30,7 @@ namespace Utilities
 
         public void ShowAfterThreshold()
         {
-            if (NumberOfStarts > numberOfStartsThreshold &&
+            if (NumberOfStarts == numberOfStartsThreshold &&
                 GetMessageBoxResult() == MessageBoxResult.OK)
             {
                 MarketplaceReviewTask task = new MarketplaceReviewTask();
