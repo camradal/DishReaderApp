@@ -7,7 +7,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
-    mc:Ignorable="d" d:DesignHeight="800" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
     Style="{StaticResource TransitionPageStyle}"
     OrientationChanged="PhoneApplicationPage_OrientationChanged"
     Loaded="PhoneApplicationPage_Loaded">

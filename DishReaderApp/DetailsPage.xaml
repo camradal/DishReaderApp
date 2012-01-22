@@ -9,7 +9,8 @@
     xmlns:DishReaderApp_ViewModels="clr-namespace:DishReaderApp.ViewModels" 
     x:Class="DishReaderApp.DetailsPage"
     SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
-    d:DesignHeight="800" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True"
+    d:DesignHeight="768" d:DesignWidth="480"
     mc:Ignorable="d"
     OrientationChanged="PhoneApplicationPage_OrientationChanged"
     Loaded="PhoneApplicationPage_Loaded">
@@ -26,7 +27,7 @@
     </Grid>
 
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" Opacity="0.5">
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" Opacity="0.65">
             <shell:ApplicationBarIconButton x:Name="buttonEmail" IconUri="Images/appbar.feature.email.rest.png" Text="email" Click="buttonEmail_Click" />
             <shell:ApplicationBarIconButton x:Name="buttonRefresh" IconUri="Images/appbar.refresh.rest.png" Text="refresh" Click="buttonRefresh_Click" />
             <shell:ApplicationBarIconButton x:Name="buttonPrevious" IconUri="Images/appbar.back.rest.png" Text="previous" Click="buttonPrevious_Click" />
