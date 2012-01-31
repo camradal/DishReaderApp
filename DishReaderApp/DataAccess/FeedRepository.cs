@@ -99,7 +99,7 @@ namespace DishReaderApp.DataAccess
                            Title = htmlConverter.Convert(item.Title.Text),
                            Summary = htmlConverter.Convert(item.Summary.Text),
                            Url = item.Links[0].Uri,
-                           PublishedDate = item.PublishDate.DateTime,
+                           PublishedDate = item.PublishDate.DateTime.AddHours(5).ToLocalTime(), // adjust for EST
                            IsNew = true
                        };
             }

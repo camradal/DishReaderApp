@@ -94,6 +94,7 @@
       <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utilities\BoolToFontWeightConverter.cs" />
+    <Compile Include="Utilities\RelativeAndAbsoluteTimeConverter.cs" />
     <Compile Include="Utilities\GlobalLoading.cs" />
     <Compile Include="Utilities\OrientationHelper.cs" />
     <Compile Include="Utilities\ReviewThisAppTask.cs" />
