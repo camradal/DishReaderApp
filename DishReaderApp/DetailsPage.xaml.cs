@@ -31,8 +31,8 @@ namespace DishReaderApp
             var buttonNext = (ApplicationBarIconButton)ApplicationBar.Buttons[3];
             buttonNext.Text = Strings.ButtonNext;
 
-            webBrowser1.Navigated += new EventHandler<NavigationEventArgs>(webBrowser1_Navigated);
-            webBrowser1.LoadCompleted += new LoadCompletedEventHandler(webBrowser1_LoadCompleted);
+            webBrowser1.Navigated += webBrowser1_Navigated;
+            webBrowser1.LoadCompleted += webBrowser1_LoadCompleted;
         }
 
         void webBrowser1_Navigated(object sender, NavigationEventArgs e)
@@ -57,7 +57,7 @@ namespace DishReaderApp
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            string selectedIndex = "";
+            string selectedIndex;
             if (!App.FastSwitching && State.ContainsKey("url"))
             {
                 // recover from tombstoning
@@ -130,6 +130,9 @@ namespace DishReaderApp
                 DataContext = App.ViewModel.AllFeedItems[currentIndex];
                 webBrowser1.Source = ((FeedItemViewModel)DataContext).Url;
                 EnableOrDisableNavigation(currentIndex);
+
+                // item should not be highlighted anymore
+                App.ViewModel.AllFeedItems[currentIndex].IsNew = false;
             }
         }
 

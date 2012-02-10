@@ -5,10 +5,11 @@ using DishReaderApp.Resources;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Utilities;
+using DishReaderApp.ViewModels;
 
 namespace DishReaderApp
 {
-    public partial class MainPage : PhoneApplicationPage
+    public partial class MainPage
     {
         // Constructor
         public MainPage()
@@ -25,7 +26,7 @@ namespace DishReaderApp
             // initialize view model after the page is loaded
             DataContext = App.ViewModel;
 
-            Loaded += new RoutedEventHandler(MainPage_Loaded);
+            Loaded += MainPage_Loaded;
         }
 
         void MainPage_Loaded(object sender, RoutedEventArgs e)
@@ -50,6 +51,10 @@ namespace DishReaderApp
             {
                 return;
             }
+
+            // item should not be highlighted anymore
+            var item = (FeedItemViewModel)MainListBox.Items[MainListBox.SelectedIndex];
+            item.IsNew = false;
 
             // navigate to the new page
             NavigationService.Navigate(new Uri("/DetailsPage.xaml?selectedItem=" + MainListBox.SelectedIndex, UriKind.Relative));
