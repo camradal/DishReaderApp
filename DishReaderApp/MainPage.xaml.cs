@@ -52,10 +52,6 @@ namespace DishReaderApp
                 return;
             }
 
-            // item should not be highlighted anymore
-            var item = (FeedItemViewModel)MainListBox.Items[MainListBox.SelectedIndex];
-            item.IsNew = false;
-
             // navigate to the new page
             NavigationService.Navigate(new Uri("/DetailsPage.xaml?selectedItem=" + MainListBox.SelectedIndex, UriKind.Relative));
 

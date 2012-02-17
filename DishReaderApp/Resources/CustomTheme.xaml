@@ -1,5 +1,5 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <SolidColorBrush x:Key="AppTitleColor" Color="#EB3C2E" />
+    <SolidColorBrush x:Key="AppTitleColor" Color="#003855" />
     <SolidColorBrush x:Key="PageTitleColor" Color="#003855" />
     <SolidColorBrush x:Key="HeaderColor" Color="#00598C" />
     <SolidColorBrush x:Key="DefaultBackgroundColor" Color="White" />
