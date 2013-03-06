@@ -30,6 +30,9 @@
             <shell:ApplicationBarIconButton x:Name="buttonRefresh" IconUri="Images/appbar.refresh.rest.png" Text="refresh" Click="buttonRefresh_Click" />
             <shell:ApplicationBarIconButton x:Name="buttonPrevious" IconUri="Images/appbar.back.rest.png" Text="previous" Click="buttonPrevious_Click" />
             <shell:ApplicationBarIconButton x:Name="buttonNext" IconUri="Images/appbar.next.rest.png" Text="next" Click="buttonNext_Click" />
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="share..." Click="menuItemShare_Click"/>
+            </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 

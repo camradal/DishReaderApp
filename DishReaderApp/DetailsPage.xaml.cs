@@ -97,13 +97,34 @@ namespace DishReaderApp
 
                 EmailComposeTask task = new EmailComposeTask();
                 task.Subject = context.Title;
-                task.Body = string.Format("{0}\n\n{1}({2})", Strings.InterestingArticle, context.Title, url);
+                task.Body = string.Format("{0}\n\n{1}", context.Summary, url);
                 task.To = string.Empty;
                 task.Show();
             }
             catch
             {
                 // prevent exceptions from double-click
+            }
+        }
+
+        private void menuItemShare_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var context = (FeedItemViewModel)this.DataContext;
+                Uri url = webBrowser1.Source ?? context.Url;
+
+                var task = new ShareLinkTask()
+                {
+                    Title = context.Title,
+                    Message = context.Summary,
+                    LinkUri = url
+                };
+                task.Show();
+            }
+            catch (Exception)
+            {
+                // fast-clicking can result in exception, so we just handle it
             }
         }
 
