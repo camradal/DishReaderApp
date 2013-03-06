@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using DishReaderApp.Resources;
 using Microsoft.Phone.Controls;
-using Microsoft.Phone.Shell;
+using Microsoft.Phone.Tasks;
 using Utilities;
-using DishReaderApp.ViewModels;
 
 namespace DishReaderApp
 {
@@ -15,13 +13,6 @@ namespace DishReaderApp
         public MainPage()
         {
             InitializeComponent();
-
-            // specify the text explicitly on the app bar using our resource string
-            var buttonRefresh = (ApplicationBarIconButton)ApplicationBar.Buttons[0];
-            buttonRefresh.Text = Strings.ButtonRefresh;
-
-            var menuItemAbout = (ApplicationBarMenuItem)ApplicationBar.MenuItems[0];
-            menuItemAbout.Text = Strings.MenuItemAbout;
 
             // initialize view model after the page is loaded
             DataContext = App.ViewModel;
@@ -62,6 +53,34 @@ namespace DishReaderApp
         private void RefreshButton_Click(object sender, EventArgs e)
         {
             App.ViewModel.LoadData();
+        }
+
+        private void RateThisAppMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var task = new MarketplaceReviewTask();
+                task.Show();
+            }
+            catch
+            {
+                // prevent exceptions from double-click
+            }
+        }
+
+        private void MoreAppsMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var task = new MarketplaceSearchTask();
+                task.ContentType = MarketplaceContentType.Applications;
+                task.SearchTerms = "Dapper Panda";
+                task.Show();
+            }
+            catch
+            {
+                // prevent exceptions from double-click
+            }
         }
 
         private void AboutMenuItem_Click(object sender, EventArgs e)

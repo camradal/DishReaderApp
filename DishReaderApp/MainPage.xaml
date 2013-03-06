@@ -48,6 +48,8 @@
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
             <shell:ApplicationBarIconButton x:Name="RefreshButton" IconUri="Images/appbar.refresh.rest.png" Text="refresh" Click="RefreshButton_Click" />
             <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem x:Name="RateThisAppMenuItem" Text="rate this app" Click="RateThisAppMenuItem_Click" />
+                <shell:ApplicationBarMenuItem x:Name="MoreAppsMenuItem" Text="more apps" Click="MoreAppsMenuItem_Click" />
                 <shell:ApplicationBarMenuItem x:Name="AboutMenuItem" Text="about" Click="AboutMenuItem_Click" />
             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
