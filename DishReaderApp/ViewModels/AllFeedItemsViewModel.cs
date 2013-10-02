@@ -15,6 +15,7 @@ namespace DishReaderApp.ViewModels
     {
         private readonly FeedRepository feedRepository = new FeedRepository(new Uri(@"http://feeds.feedburner.com/andrewsullivan/rApM"));
 
+        public ShareViewModel Item { get; set; }
         public ObservableCollection<FeedItemViewModel> AllFeedItems { get; private set; }
         public bool IsDataLoaded { get; set; }
         public DateTime LastUpdated { get; set; }

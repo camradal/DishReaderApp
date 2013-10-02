@@ -62,6 +62,7 @@
     <Reference Include="Microsoft.Phone.Controls.Toolkit, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b772ad94eb9ca604, processorArchitecture=MSIL">
       <HintPath>..\packages\SilverlightToolkitWP.4.2011.12.13\lib\sl4-windowsphone71\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Phone.Interop" />
     <Reference Include="Microsoft.Xna.Framework" />
     <Reference Include="System.ServiceModel.Syndication">
       <HintPath>..\..\..\Program Files (x86)\Microsoft SDKs\Silverlight\v4.0\Libraries\Client\System.ServiceModel.Syndication.dll</HintPath>
@@ -95,6 +96,10 @@
     <Compile Include="AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ShareHelper.cs" />
+    <Compile Include="SharePage.xaml.cs">
+      <DependentUpon>SharePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utilities\BoolToFontWeightConverter.cs" />
     <Compile Include="Utilities\RelativeAndAbsoluteTimeConverter.cs" />
     <Compile Include="Utilities\GlobalLoading.cs" />
@@ -104,6 +109,7 @@
     <Compile Include="Utilities\HtmlToTextConverter.cs" />
     <Compile Include="ViewModels\AllFeedItemsViewModel.cs" />
     <Compile Include="ViewModels\FeedItemViewModel.cs" />
+    <Compile Include="ViewModels\ShareViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -128,6 +134,10 @@
       <All>True</All>
       <AutoFill>True</AutoFill>
     </BlendEmbeddedFont>
+    <Page Include="SharePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Resource Include="Resources\Ads.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -163,6 +173,7 @@
     <Content Include="Images\appbar.feature.email.rest.png" />
     <Content Include="Images\appbar.next.rest.png" />
     <Content Include="Images\appbar.refresh.rest.png" />
+    <Content Include="Images\appbar.share.rest.png" />
     <Content Include="Images\Application_Icon_159.png" />
     <Content Include="Images\Application_Icon_336.png" />
   </ItemGroup>

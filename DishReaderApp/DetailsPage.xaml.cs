@@ -87,45 +87,31 @@ namespace DishReaderApp
             base.OnNavigatedFrom(e);
         }
 
-        private void buttonEmail_Click(object sender, EventArgs e)
+        private void buttonShare_Click(object sender, EventArgs e)
         {
-            try
-            {
-                var context = (FeedItemViewModel)this.DataContext;
-                Uri uri = webBrowser1.Source;
-                string url = uri != null ? uri.AbsoluteUri : context.Url.AbsolutePath;
+            var context = this.DataContext as FeedItemViewModel;
+            if (context == null)
+                return;
 
-                EmailComposeTask task = new EmailComposeTask();
-                task.Subject = context.Title;
-                task.Body = string.Format("{0}\n\n{1}", context.Summary, url);
-                task.To = string.Empty;
-                task.Show();
-            }
-            catch
+            App.ViewModel.Item = new ShareViewModel
             {
-                // prevent exceptions from double-click
-            }
-        }
+                Url = context.Url.AbsoluteUri,
+                Title = context.Title,
+                Summary = context.Summary
+            };
 
-        private void menuItemShare_Click(object sender, EventArgs e)
-        {
-            try
+            var sharePageUri = new Uri("/SharePage.xaml", UriKind.Relative);
+            Dispatcher.BeginInvoke(() =>
             {
-                var context = (FeedItemViewModel)this.DataContext;
-                Uri url = webBrowser1.Source ?? context.Url;
-
-                var task = new ShareLinkTask()
+                try
                 {
-                    Title = context.Title,
-                    Message = context.Summary,
-                    LinkUri = url
-                };
-                task.Show();
-            }
-            catch (Exception)
-            {
-                // fast-clicking can result in exception, so we just handle it
-            }
+                    NavigationService.Navigate(sharePageUri);
+                }
+                catch (Exception)
+                {
+                    // prevent double-click errors
+                }
+            });
         }
 
         private void buttonRefresh_Click(object sender, EventArgs e)
@@ -149,7 +135,6 @@ namespace DishReaderApp
             {
                 currentIndex = index;
                 DataContext = App.ViewModel.AllFeedItems[currentIndex];
-                webBrowser1.Source = ((FeedItemViewModel)DataContext).Url;
                 EnableOrDisableNavigation(currentIndex);
 
                 // item should not be highlighted anymore

@@ -21,18 +21,15 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <phone:WebBrowser Grid.Row="0" x:Name="webBrowser1" IsScriptEnabled="True" Margin="0" />
+        <phone:WebBrowser Grid.Row="0" x:Name="webBrowser1" IsScriptEnabled="True" Margin="0" Source="{Binding Url}" />
     </Grid>
 
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
-            <shell:ApplicationBarIconButton x:Name="buttonEmail" IconUri="Images/appbar.feature.email.rest.png" Text="email" Click="buttonEmail_Click" />
+            <shell:ApplicationBarIconButton x:Name="buttonShare" IconUri="Images/appbar.share.rest.png" Text="share" Click="buttonShare_Click" />
             <shell:ApplicationBarIconButton x:Name="buttonRefresh" IconUri="Images/appbar.refresh.rest.png" Text="refresh" Click="buttonRefresh_Click" />
             <shell:ApplicationBarIconButton x:Name="buttonPrevious" IconUri="Images/appbar.back.rest.png" Text="previous" Click="buttonPrevious_Click" />
             <shell:ApplicationBarIconButton x:Name="buttonNext" IconUri="Images/appbar.next.rest.png" Text="next" Click="buttonNext_Click" />
-            <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem Text="share..." Click="menuItemShare_Click"/>
-            </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 
