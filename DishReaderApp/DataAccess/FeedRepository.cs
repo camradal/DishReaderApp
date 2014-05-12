@@ -89,20 +89,36 @@ namespace DishReaderApp.DataAccess
 
         private IEnumerable<FeedItem> ExtractFeedItemsFromSyndicationString(string value)
         {
+            var items = new List<FeedItem>();
             using (StringReader stringReader = new StringReader(value))
-            using (XmlReader reader = XmlReader.Create(stringReader))
             {
-                SyndicationFeed feed = SyndicationFeed.Load(reader);
-                return from item in feed.Items
-                       select new FeedItem()
-                       {
-                           Title = htmlConverter.Convert(item.Title.Text),
-                           Summary = htmlConverter.Convert(item.Summary.Text),
-                           Url = item.Links[0].Uri,
-                           PublishedDate = item.PublishDate.DateTime.AddHours(5).ToLocalTime(), // adjust for EST
-                           IsNew = true
-                       };
+                string content = stringReader.ReadToEnd();
+                content = content.Replace("-0001 00:00:00 +0000", string.Format("{0} 00:00:00 +0000", DateTime.Now.Year));
+                byte[] bytes = System.Text.Encoding.UTF8.GetBytes(content);
+                using (XmlReader reader = XmlReader.Create(new MemoryStream(bytes)))
+                {
+                    SyndicationFeed feed = SyndicationFeed.Load(reader);
+                    foreach (SyndicationItem item in feed.Items)
+                    {
+                        try
+                        {
+                            items.Add(new FeedItem()
+                            {
+                                Title = htmlConverter.Convert(item.Title.Text),
+                                Summary = htmlConverter.Convert(item.Summary.Text),
+                                Url = item.Links[0].Uri,
+                                PublishedDate = item.PublishDate.DateTime.AddHours(5).ToLocalTime(), // adjust for EST
+                                IsNew = true
+                            });
+                        }
+                        catch (Exception)
+                        {
+                            // ignore individual errors
+                        }
+                    }
+                }
             }
+            return items;
         }
     }
 }
